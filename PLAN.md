@@ -32,23 +32,23 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 
 ### Phase 1 — Build landing page locally
 
-- [ ] Set up project folder with `index.html`, Tailwind via CDN (or a simple build if needed)
-- [ ] Single landing page with:
-  - [ ] Short intro / hero section
-  - [ ] Navigation header (links/icons for project sections — Blog, Games, etc.)
-  - [ ] Project cards or sections that link out to the actual projects
-  - [ ] Footer with contact / social links
-- [ ] SEO basics from day one:
-  - [ ] `<title>` and `<meta name="description">`
-  - [ ] Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`)
-  - [ ] Twitter card tags
-  - [ ] Favicon (use a generator for multiple sizes)
-  - [ ] `robots.txt`
-  - [ ] `sitemap.xml` *(created with placeholder URL in Phase 1 — update `<loc>` values in Phase 3 once the Cloudflare `.pages.dev` URL is known)*
-  - [ ] Semantic HTML (`<header>`, `<nav>`, `<main>`, `<footer>`, real `<h1>`)
-  - [ ] `lang` attribute on `<html>`
-- [ ] Responsive (mobile + desktop)
-- [ ] Test locally
+- [x] Set up project folder with `index.html`, Tailwind CLI v4 standalone binary
+- [x] Single landing page with:
+  - [x] Short intro / hero section
+  - [x] Navigation header (links/icons for project sections — Blog, Games, Contact)
+  - [x] Project cards linking out to Tech Digest and Geofill
+  - [x] Footer with GitHub, email, LinkedIn (LinkedIn URL still placeholder)
+- [x] SEO basics from day one:
+  - [x] `<title>` and `<meta name="description">`
+  - [x] Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`)
+  - [x] Twitter card tags
+  - [x] Favicon — `favicon.svg` (SVG, modern browsers; raster sizes deferred until design)
+  - [x] `robots.txt`
+  - [x] `sitemap.xml` *(placeholder URL — update `<loc>` values in Phase 3 once Cloudflare `.pages.dev` URL is known)*
+  - [x] Semantic HTML (`<header>`, `<nav>`, `<main>`, `<footer>`, real `<h1>`)
+  - [x] `lang` attribute on `<html>`
+- [x] Responsive (mobile + desktop)
+- [x] Tested locally (opened in browser)
 
 ### Phase 2 — Push to GitHub
 
