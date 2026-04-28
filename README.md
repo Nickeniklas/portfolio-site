@@ -5,7 +5,7 @@ Static portfolio landing page. Links out to separate projects. Hosted on Cloudfl
 ## Status
 
 - **Phase 1 — complete.** Landing page built and committed.
-- **Phase 2 — next.** Push to GitHub (already done locally), create Cloudflare Pages project.
+- **Phase 2 — complete.** Pushed to GitHub with README.
 - **Phase 3 — next.** Deploy to Cloudflare, get `.pages.dev` URL, update `sitemap.xml` and `robots.txt` placeholders.
 
 ## Local development

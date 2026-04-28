@@ -52,9 +52,9 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 
 ### Phase 2 — Push to GitHub
 
-- [ ] Create new GitHub repo
-- [ ] Commit and push the site
-- [ ] Add a basic `README.md` describing the project
+- [x] Create new GitHub repo
+- [x] Commit and push the site
+- [x] Add a basic `README.md` describing the project
 
 ### Phase 3 — Deploy to Cloudflare Pages
 
