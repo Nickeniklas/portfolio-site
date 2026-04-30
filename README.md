@@ -41,7 +41,6 @@ sitemap.xml         placeholder URL — update in Phase 3
 
 ## Outstanding items
 
-- **LinkedIn URL** — `href="https://www.linkedin.com/in/niklassav/"` placeholder in footer, update when ready
 - **og:image** — tags present but pointing to placeholder URL; needs a real raster image (1200×630px) after design
 - **Tech Digest URL** — linked to `https://nickeniklas.github.io/tech-digest/` (root); verify it has an index page
 - **sitemap.xml + robots.txt** — replace `placeholder.pages.dev` with real URL in Phase 3
