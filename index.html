@@ -9,95 +9,327 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://placeholder.pages.dev/">
+  <meta property="og:url" content="https://nickeniklas.pages.dev/">
   <meta property="og:title" content="Niklas Savonheimo">
   <meta property="og:description" content="Helsinki-based IT student building data and software projects. Python, Power BI, SQL.">
-  <meta property="og:image" content="https://placeholder.pages.dev/og-image.png">
 
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Niklas Savonheimo">
   <meta name="twitter:description" content="Helsinki-based IT student building data and software projects. Python, Power BI, SQL.">
-  <meta name="twitter:image" content="https://placeholder.pages.dev/og-image.png">
+
+  <!-- Fonts: Fraunces (variable, all axes) + IBM Plex Sans + IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white text-gray-900 antialiased">
+<body>
 
-  <header class="border-b border-gray-200">
-    <nav class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="font-semibold text-gray-900 hover:text-brand-dark transition-colors">
-        Niklas Savonheimo
+  <!-- Konami easter egg overlay -->
+  <div class="egg" id="egg" aria-modal="true" role="dialog" aria-label="Easter egg">
+    <div class="egg-card" id="egg-card">
+      <pre class="ascii">   /\___/\
+  ( o   o )
+   \  ^  /     hello, fellow keyboard person.
+    >---<
+   /     \
+</pre>
+      <div>You found <span class="hl">the konami</span>. There's nothing to win — but thanks for trying things. Curiosity is mostly what I'm hiring myself for too.</div>
+      <div class="hint">↑ ↑ ↓ ↓ ← → ← → b a</div>
+      <span class="egg-x">click anywhere to close</span>
+    </div>
+  </div>
+
+  <div class="shell">
+
+    <!-- Nav -->
+    <nav class="nav" aria-label="Primary">
+      <a class="nav-id" href="#top">
+        <span class="dot" aria-hidden="true"></span>
+        <span><b>Niklas Savonheimo</b></span>
       </a>
-      <div class="flex gap-6 text-sm text-gray-600">
-        <a href="#blog" class="hover:text-gray-900 transition-colors">Blog</a>
-        <a href="#games" class="hover:text-gray-900 transition-colors">Games</a>
-        <a href="#contact" class="hover:text-gray-900 transition-colors">Contact</a>
+      <div class="nav-links">
+        <a href="#work">work</a>
+        <a href="#writing">writing</a>
+        <a href="#stack">stack</a>
+        <a href="#about">about</a>
+        <a href="#contact">contact</a>
       </div>
     </nav>
-  </header>
-
-  <main>
 
     <!-- Hero -->
-    <section id="hero" class="max-w-4xl mx-auto px-6 py-20">
-      <h1 class="text-4xl font-bold text-gray-900 mb-6">Niklas Savonheimo</h1>
-      <p class="text-lg text-gray-600 max-w-2xl leading-relaxed">
-        Helsinki-based IT student with a strong technical background in Python, Power BI, and SQL.
-        I cover the full data lifecycle — from preprocessing to predictive modeling.
-        I like building solutions where technical efficiency and business value come together.
-      </p>
+    <header class="hero" id="top">
+      <div>
+        <div class="hero-eyebrow">Portfolio · 2026</div>
+        <h1>Niklas <em>Savonheimo</em></h1>
+        <p class="hero-lede">IT Engineer · Helsinki</p>
+      </div>
+    </header>
+
+    <!-- Now strip -->
+    <div class="now" aria-label="Now">
+      <div class="now-cell">
+        <span class="lbl">Helsinki</span>
+        <span class="val">
+          <span class="accent" id="clock-time">--:--</span><span class="blink" aria-hidden="true"></span><span id="clock-part" style="margin-left:8px;color:var(--ink-mute)"> · —</span>
+        </span>
+      </div>
+      <div class="now-cell">
+        <span class="lbl">Building</span>
+        <span class="val"><span class="accent">Geofill v2</span></span>
+      </div>
+      <div class="now-cell">
+        <span class="lbl">Reading</span>
+        <span class="val">The Pragmatic Programmer</span>
+      </div>
+      <div class="now-cell">
+        <span class="lbl">Listening</span>
+        <span class="val">Nils Frahm — All Melody</span>
+      </div>
+    </div>
+
+    <!-- § 01 Selected work -->
+    <section class="section" id="work">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">§ 01</span>
+          <h2 class="sec-title">Selected work</h2>
+        </div>
+        <span class="sec-sub">4 projects</span>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- Tech Digest -->
+        <a class="card" href="https://nickeniklas.github.io/tech-digest/" target="_blank" rel="noopener noreferrer">
+          <div class="card-thumb">
+            <div class="card-thumb-stripes" aria-hidden="true"></div>
+            <div class="card-thumb-marker">writing</div>
+            <div class="card-thumb-label">TECH-DIGEST.LOG</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2026</span><span class="sep">·</span><span>weekly / writing</span>
+            </div>
+            <h3>Tech Digest<span class="arrow" aria-hidden="true">↗</span></h3>
+            <p class="card-blurb">A weekly note-to-self on what's actually happening in tech, written plainly.</p>
+          </div>
+        </a>
+
+        <!-- Geofill -->
+        <a class="card" href="https://nickeniklas.github.io/geofill/" target="_blank" rel="noopener noreferrer">
+          <div class="card-thumb">
+            <div class="card-thumb-stripes" aria-hidden="true"></div>
+            <div class="card-thumb-marker">game</div>
+            <div class="card-thumb-label">GEOFILL.MAP</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2025</span><span class="sep">·</span><span>game / js</span>
+            </div>
+            <h3>Geofill<span class="arrow" aria-hidden="true">↗</span></h3>
+            <p class="card-blurb">A geography fill-in game — a small experiment in turning rote learning into something playful.</p>
+          </div>
+        </a>
+
+        <!-- Placeholder 1 -->
+        <div class="card">
+          <div class="card-thumb">
+            <div class="card-thumb-stripes" aria-hidden="true"></div>
+            <div class="card-thumb-marker">soon</div>
+            <div class="card-thumb-label">PLACEHOLDER</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>—</span><span class="sep">·</span><span>wip</span>
+            </div>
+            <h3>·  ·  ·</h3>
+            <p class="card-blurb">More on the way. The shelf has room.</p>
+          </div>
+        </div>
+
+        <!-- Placeholder 2 -->
+        <div class="card">
+          <div class="card-thumb">
+            <div class="card-thumb-stripes" aria-hidden="true"></div>
+            <div class="card-thumb-marker">soon</div>
+            <div class="card-thumb-label">PLACEHOLDER</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>—</span><span class="sep">·</span><span>wip</span>
+            </div>
+            <h3>·  ·  ·</h3>
+            <p class="card-blurb">Drop in a project here — a tool, a model, a script that helped someone.</p>
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Blog -->
-    <section id="blog" class="border-t border-gray-200">
-      <div class="max-w-4xl mx-auto px-6 py-12">
-        <h2 class="text-xl font-semibold text-gray-900 mb-6">Blog</h2>
-        <a href="https://nickeniklas.github.io/tech-digest/" target="_blank" rel="noopener noreferrer"
-           class="group block p-6 border border-gray-200 rounded-lg hover:border-brand-dark transition-colors">
-          <article>
-            <h3 class="text-base font-medium text-gray-900 mb-2 group-hover:text-brand-dark transition-colors">
-              Tech Digest
-            </h3>
-            <p class="text-sm text-gray-500">Weekly roundup of what's happening in tech.</p>
-          </article>
+    <!-- § 02 Writing -->
+    <section class="section" id="writing">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">§ 02</span>
+          <h2 class="sec-title">Writing</h2>
+        </div>
+        <span class="sec-sub">notes, slowly</span>
+      </div>
+
+      <div class="writing-list">
+        <a class="writing-row" href="#">
+          <span class="date">2026 · 04</span>
+          <span class="ttl">Sample post — predictive models without the mystique</span>
+          <span class="tag">data</span>
+        </a>
+        <a class="writing-row" href="#">
+          <span class="date">2026 · 03</span>
+          <span class="ttl">Sample post — the pleasure of a small SQL query</span>
+          <span class="tag">sql</span>
+        </a>
+        <a class="writing-row" href="#">
+          <span class="date">2026 · 02</span>
+          <span class="ttl">Sample post — Power BI without the tutorial sludge</span>
+          <span class="tag">bi</span>
         </a>
       </div>
     </section>
 
-    <!-- Games -->
-    <section id="games" class="border-t border-gray-200">
-      <div class="max-w-4xl mx-auto px-6 py-12">
-        <h2 class="text-xl font-semibold text-gray-900 mb-6">Games</h2>
-        <a href="https://nickeniklas.github.io/geofill/" target="_blank" rel="noopener noreferrer"
-           class="group block p-6 border border-gray-200 rounded-lg hover:border-brand-dark transition-colors">
-          <article>
-            <h3 class="text-base font-medium text-gray-900 mb-2 group-hover:text-brand-dark transition-colors">
-              Geofill
-            </h3>
-            <p class="text-sm text-gray-500">A geography-based fill-in game.</p>
-          </article>
-        </a>
+    <!-- § 03 The shelf -->
+    <section class="section" id="stack">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">§ 03</span>
+          <h2 class="sec-title">The shelf</h2>
+        </div>
+        <span class="sec-sub">tools &amp; stack</span>
+      </div>
+
+      <div class="stack">
+        <div class="stack-cell">
+          <span class="lbl">Daily</span>
+          <ul>
+            <li>Python</li>
+            <li>Power BI</li>
+            <li>SQL</li>
+          </ul>
+        </div>
+        <div class="stack-cell">
+          <span class="lbl">Comfy with</span>
+          <ul>
+            <li>Pandas</li>
+            <li>scikit-learn</li>
+            <li>Tailwind</li>
+          </ul>
+        </div>
+        <div class="stack-cell">
+          <span class="lbl">Learning</span>
+          <ul>
+            <li>Rust</li>
+            <li>Postgres internals</li>
+            <li>DuckDB</li>
+          </ul>
+        </div>
+        <div class="stack-cell">
+          <span class="lbl">Tools</span>
+          <ul>
+            <li>Neovim</li>
+            <li>Cloudflare Pages</li>
+            <li>Notion</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-  </main>
+    <!-- § 04 About -->
+    <section class="section" id="about">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">§ 04</span>
+          <h2 class="sec-title">About</h2>
+        </div>
+      </div>
 
-  <footer id="contact" class="border-t border-gray-200 mt-8">
-    <div class="max-w-4xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-      <span>© 2026 Niklas Savonheimo</span>
-      <nav class="flex gap-6" aria-label="Social links">
-        <a href="https://github.com/Nickeniklas" target="_blank" rel="noopener noreferrer"
-           class="hover:text-gray-900 transition-colors">GitHub</a>
-        <a href="mailto:savonheimoniklas@gmail.com"
-           class="hover:text-gray-900 transition-colors">Email</a>
-        <a href="https://www.linkedin.com/in/niklassav/" class="hover:text-gray-900 transition-colors">LinkedIn</a>
-      </nav>
+      <div class="about">
+        <div class="prose">
+          <p><span class="first">I'm </span>Niklas — an IT student in Helsinki who likes the part of a project where things start to click. Most of what I do sits between data and software: cleaning a messy table until it tells the truth, building a small model, then writing the result up so a non-engineer cares.</p>
+          <p>I'd rather understand one thing deeply than skim five. The site is a slow notebook of those things — projects when they're ready, posts when there's something honest to say.</p>
+        </div>
+        <dl class="about-meta">
+          <div><dt>Location</dt><dd>Helsinki, FI · UTC+2</dd></div>
+          <div><dt>Status</dt><dd>Open to summer 2026 internships</dd></div>
+          <div><dt>Languages</dt><dd>SV · EN · FI · DE (a little)</dd></div>
+        </dl>
+      </div>
+    </section>
+
+  </div><!-- /shell -->
+
+  <!-- Footer (full-width, has its own shell inside) -->
+  <footer class="footer" id="contact">
+    <div class="shell">
+      <div class="footer-grid">
+        <div>
+          <h2 class="foot-q">Got a project, a question, or a <em>strange idea</em>?</h2>
+          <a class="foot-mail" href="mailto:savonheimoniklas@gmail.com">savonheimoniklas@gmail.com →</a>
+        </div>
+        <div class="foot-side">
+          <div class="row">
+            <a href="https://github.com/Nickeniklas" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://www.linkedin.com/in/niklassav/" target="_blank" rel="noopener noreferrer">linkedin</a>
+            <a href="mailto:savonheimoniklas@gmail.com">email</a>
+          </div>
+          <div class="meta">
+            <span>Helsinki · 60.17°N 24.94°E</span>
+            <span>UTC+2</span>
+          </div>
+        </div>
+      </div>
+      <div class="foot-colophon">
+        <span>© 2026 N. Savonheimo · set in Fraunces &amp; IBM Plex · built quietly</span>
+        <span class="secret" title="press ↑↑↓↓←→←→ba">v0.1 · last edited today</span>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Helsinki clock — updates every second, no ticking seconds display
+    (function () {
+      var timeEl = document.getElementById('clock-time');
+      var partEl = document.getElementById('clock-part');
+      function tick() {
+        var now = new Date();
+        var t = now.toLocaleTimeString('en-GB', { timeZone: 'Europe/Helsinki', hour: '2-digit', minute: '2-digit' });
+        var h = Number(now.toLocaleString('en-GB', { timeZone: 'Europe/Helsinki', hour: '2-digit', hourCycle: 'h23' }).slice(0, 2));
+        var part = h < 5 ? 'deep night' : h < 8 ? 'early morning' : h < 12 ? 'morning' : h < 14 ? 'midday' : h < 18 ? 'afternoon' : h < 22 ? 'evening' : 'late night';
+        timeEl.textContent = t;
+        partEl.textContent = ' · ' + part;
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // Konami easter egg — ↑ ↑ ↓ ↓ ← → ← → b a
+    (function () {
+      var KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+      var seq = [];
+      var egg = document.getElementById('egg');
+      var card = document.getElementById('egg-card');
+      document.addEventListener('keydown', function (e) {
+        seq.push(e.key);
+        if (seq.length > KONAMI.length) seq.shift();
+        if (seq.join(',') === KONAMI.join(',')) egg.classList.add('open');
+      });
+      egg.addEventListener('click', function () { egg.classList.remove('open'); });
+      card.addEventListener('click', function (e) { e.stopPropagation(); });
+    })();
+  </script>
 
 </body>
 </html>

@@ -56,6 +56,17 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 - [x] Commit and push the site
 - [x] Add a basic `README.md` describing the project
 
+### Design v0.1 — Visual redesign (complete)
+
+- [x] Full redesign via Claude Design export (forest-study / reading-room aesthetic)
+- [x] Implemented in plain HTML + custom CSS (OKLCH tokens, no Tailwind utilities)
+- [x] Type: Fraunces variable (slab serif) + IBM Plex Sans/Mono
+- [x] Live Helsinki clock (Intl.DateTimeFormat, Europe/Helsinki)
+- [x] Hidden keyboard easter egg
+- [x] Responsive (single breakpoint 760px)
+- [x] Reduced-motion support
+- Design reference archived as `portfolio-site-designV1.zip` in repo root
+
 ### Phase 3 — Deploy to Cloudflare Pages
 
 - [ ] Create Cloudflare account (free)
