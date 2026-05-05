@@ -67,17 +67,19 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 - [x] Reduced-motion support
 - Design reference archived as `portfolio-site-designV1.zip` in repo root
 
-### Phase 3 — Deploy to Cloudflare Pages
+### Phase 3 — Deploy to Cloudflare Pages (complete)
 
-- [ ] Create Cloudflare account (free)
-- [ ] In Cloudflare dashboard: Pages → Connect to Git → select the repo
-- [ ] Configure build settings (for plain HTML: build command empty, output directory = root or `/dist`)
-- [ ] Deploy → get a `something.pages.dev` URL
-- [ ] Verify everything works on the live URL
+- [x] Create Cloudflare account (free)
+- [x] In Cloudflare dashboard: Pages → Connect to Git → select the repo
+- [x] Configure build settings (for plain HTML: build command empty, output directory = root)
+- [x] Deploy → live at `https://portfolio-site-5bt.pages.dev/`
+- [x] Verify everything works on the live URL
+- [x] Replace `placeholder.pages.dev` in `sitemap.xml`, `robots.txt`, and `og:url` in `index.html`
+- [x] Writing post infrastructure: `writing/` directory, first post published
 
 ### Phase 4 — Analytics
 
-- [ ] In Cloudflare Pages settings, enable Web Analytics for the project
+- [ ] In Cloudflare dashboard, enable Web Analytics for the Pages project
 - [ ] Confirm it's tracking visits
 
 ### Phase 5 — Custom domain (later, optional)
@@ -92,10 +94,10 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 ## Open questions to revisit later
 
 - Domain name choice
-- Whether to add a blog/digest directly on the site or keep linking out
+- Writing posts live as static HTML files in `writing/` — simple, no CMS. Works until volume gets unwieldy (20+ posts). Revisit then.
 - Whether projects should eventually move to subdomains (`geofill.mysite.fi`) for cleaner URLs
 - Design system: shared visual language across projects, or let each project drift?
-- **Language switch:** Add Finnish/English toggle so the site can serve both languages. Decided site starts English-only; Finnish version is a future addition.
+- **Language switch:** Add Finnish/English toggle so the site can serve both languages. Decided site starts English-only; Finnish version is a future addition. Note: writing posts may be in Swedish — that's fine, `lang` attribute set per page.
 
 ## Things to avoid
 

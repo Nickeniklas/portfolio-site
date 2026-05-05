@@ -7,7 +7,7 @@ Static portfolio landing page. Links out to separate projects. Hosted on Cloudfl
 - **Phase 1 — complete.** Landing page built and committed.
 - **Phase 2 — complete.** Pushed to GitHub with README.
 - **Design v0.1 — complete.** Full visual redesign implemented: warm coffee-dark aesthetic, Fraunces slab + IBM Plex type, OKLCH color tokens, live Helsinki clock, interactive easter egg.
-- **Phase 3 — next.** Deploy to Cloudflare Pages, get `.pages.dev` URL, update `sitemap.xml` and `robots.txt` placeholders.
+- **Phase 3 — complete.** Deployed to Cloudflare Pages at `https://portfolio-site-5bt.pages.dev/`. All placeholder URLs replaced. Writing post infrastructure in place.
 
 ## Local development
 
@@ -18,14 +18,16 @@ Static portfolio landing page. Links out to separate projects. Hosted on Cloudfl
 ## File structure
 
 ```
-index.html          main page (all sections: hero, work, writing, shelf, about, footer)
-style.css           custom CSS with OKLCH design tokens (committed directly, no build)
-src/input.css       legacy Tailwind source (unused by current design)
-build.sh            legacy CSS rebuild command (unused by current design)
-favicon.svg         logo mark
-robots.txt          allow all crawlers
-sitemap.xml         placeholder URL — update in Phase 3
-portfolio-site-designV1.zip  design export reference (keep for reference, gitignored optional)
+index.html              main page (all sections: hero, work, writing, shelf, about, footer)
+style.css               custom CSS with OKLCH design tokens (committed directly, no build)
+writing/                writing post pages — one HTML file per post
+  └─ verktyget-ror-sig-snabbare-an-jag.html  first post (Swedish, April 2026)
+favicon.svg             logo mark
+robots.txt              allow all crawlers; points to real sitemap URL
+sitemap.xml             live URL: portfolio-site-5bt.pages.dev
+src/input.css           legacy Tailwind source (unused by current design)
+build.sh                legacy CSS rebuild command (unused by current design)
+portfolio-site-designV1.zip  design export reference (keep for reference)
 ```
 
 ## Page sections
@@ -44,16 +46,24 @@ portfolio-site-designV1.zip  design export reference (keep for reference, gitign
 Content is inline in `index.html` — one edit per item to add a project, writing entry, or stack item.
 
 - **`#work`** — add a project card by duplicating an `<a class="card">` block
-- **`#writing`** — add a writing row by duplicating an `<a class="writing-row">` block
+- **`#writing`** — add a writing row; create `writing/your-slug.html`, then add an `<a class="writing-row">` pointing to it
 - **`#stack`** — add/edit items within the relevant `<ul>` in a `.stack-cell`
 - **Now strip** — edit the "Building / Reading / Listening" values inline in the `.now` section
 
+### Adding a writing post
+
+1. Duplicate `writing/verktyget-ror-sig-snabbare-an-jag.html`, rename with a slug
+2. Update `<title>`, `<meta name="description">`, `og:url`, `og:title`, `og:description` in `<head>`
+3. Update `lang` attribute if the post language differs
+4. Update the `post-eyebrow` date and tag, and `post-title`
+5. Replace the body paragraphs in `.post-body.prose`
+6. Add a matching `<a class="writing-row">` in `index.html`
+
 ## Outstanding items
 
-- **og:image** — tags present but pointing to placeholder URL; needs a real 1200×630px image
-- **sitemap.xml + robots.txt** — replace `placeholder.pages.dev` with real URL in Phase 3
-- **Cloudflare Web Analytics** — enable after Phase 3 deploy
-- **Writing posts** — sample posts are placeholders; replace `href="#"` with real URLs when published
+- **og:image** — absent from all pages; needs a 1200×630px image for social link previews
+- **Cloudflare Web Analytics** — enable in Cloudflare dashboard (Pages → project → Web Analytics)
+- **Writing posts** — 2 sample placeholder entries remain in index.html (`href="#"`)
 - **Language switch (FI/EN)** — on the backlog, noted in PLAN.md
 
 ## Stack
