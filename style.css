@@ -595,6 +595,50 @@ a { color: inherit; text-decoration: none; }
   padding-bottom: 2px;
 }
 
+/* ── writing post ──────────────────────────────────────── */
+.post-head {
+  padding: clamp(40px, 7vw, 80px) 0 clamp(24px, 4vw, 40px);
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.post-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+}
+.post-eyebrow .tag-pill {
+  border: 1px solid var(--line);
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+.post-title {
+  font-family: var(--serif);
+  font-weight: 350;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+  font-variation-settings: "SOFT" 60, "WONK" 1, "opsz" 72;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+.post-body {
+  padding-bottom: clamp(48px, 8vw, 96px);
+}
+.post-body h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: -0.02em;
+  margin: 2em 0 0.5em;
+  font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 36;
+}
+
 /* ── reduced motion ────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   .now-cell .val .blink { animation: none; opacity: 1; }

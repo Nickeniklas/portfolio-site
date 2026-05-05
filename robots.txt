@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://placeholder.pages.dev/sitemap.xml
+Sitemap: https://portfolio-site-5bt.pages.dev/sitemap.xml
