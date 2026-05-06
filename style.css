@@ -335,6 +335,15 @@ a { color: inherit; text-decoration: none; }
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--green);
 }
+.card-thumb-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.card-thumb-scrim {
+  position: absolute; inset: 0;
+  background: oklch(12% 0.012 60 / 0.5);
+}
 .card-body { padding: 18px 20px 20px; }
 .card-meta {
   font-family: var(--mono);
