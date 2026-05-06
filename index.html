@@ -80,16 +80,16 @@
         </span>
       </div>
       <div class="now-cell">
+        <span class="lbl">Status</span>
+        <span class="val">Open for work</span>
+      </div>
+      <div class="now-cell">
         <span class="lbl">Building</span>
-        <span class="val"><span class="accent">Geofill v2</span></span>
+        <span class="val"><span class="accent">portfolio-site</span></span>
       </div>
       <div class="now-cell">
-        <span class="lbl">Reading</span>
-        <span class="val">The Pragmatic Programmer</span>
-      </div>
-      <div class="now-cell">
-        <span class="lbl">Listening</span>
-        <span class="val">Nils Frahm — All Melody</span>
+        <span class="lbl">Last push</span>
+        <span class="val" id="last-push-val">—</span>
       </div>
     </div>
 
@@ -314,6 +314,28 @@
       }
       tick();
       setInterval(tick, 1000);
+    })();
+
+    // Last push — GitHub public events API
+    (function () {
+      var el = document.getElementById('last-push-val');
+      function ago(date) {
+        var diff = Math.floor((Date.now() - new Date(date)) / 1000);
+        if (diff < 3600) return Math.max(1, Math.floor(diff / 60)) + 'm ago';
+        if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+        return Math.floor(diff / 86400) + 'd ago';
+      }
+      fetch('https://api.github.com/users/Nickeniklas/events/public')
+        .then(function (r) { return r.json(); })
+        .then(function (events) {
+          var push = events.find(function (e) { return e.type === 'PushEvent'; });
+          if (!push) throw new Error('none');
+          var repo = push.repo.name.replace('Nickeniklas/', '');
+          el.textContent = repo + ' · ' + ago(push.created_at);
+        })
+        .catch(function () {
+          el.innerHTML = '<a href="https://github.com/Nickeniklas" target="_blank" rel="noopener">github ↗</a>';
+        });
     })();
 
     // Konami easter egg — ↑ ↑ ↓ ↓ ← → ← → b a
