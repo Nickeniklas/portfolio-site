@@ -22,6 +22,9 @@ index.html              main page (all sections: hero, work, writing, shelf, abo
 style.css               custom CSS with OKLCH design tokens (committed directly, no build)
 writing/                writing post pages — one HTML file per post
   └─ verktyget-ror-sig-snabbare-an-jag.html  first post (Swedish, April 2026)
+img/                    project card screenshots (two-tier thumbnail system)
+  ├─ geofill-img.jpg
+  └─ gdp-data-pipeline-img.jpg
 favicon.svg             logo mark
 robots.txt              allow all crawlers; points to real sitemap URL
 sitemap.xml             live URL: portfolio-site-5bt.pages.dev
@@ -48,7 +51,7 @@ Content is inline in `index.html` — one edit per item to add a project, writin
 - **`#work`** — add a project card by duplicating an `<a class="card">` block
 - **`#writing`** — add a writing row; create `writing/your-slug.html`, then add an `<a class="writing-row">` pointing to it
 - **`#stack`** — add/edit items within the relevant `<ul>` in a `.stack-cell`
-- **Now strip** — edit the "Building / Reading / Listening" values inline in the `.now` section
+- **Now strip** — four cells: Helsinki (live clock, don't touch), Status (static), Building (static), Last push (live GitHub API — JS in inline `<script>` at bottom of `index.html`)
 
 ### Adding a writing post
 
@@ -69,6 +72,6 @@ Content is inline in `index.html` — one edit per item to add a project, writin
 ## Stack
 
 - HTML + custom CSS (OKLCH, variable fonts: Fraunces, IBM Plex Sans/Mono)
-- Minimal inline JS (Helsinki clock, interactive easter egg — no dependencies)
+- Minimal inline JS (Helsinki clock, GitHub API fetch for last push, interactive easter egg — no dependencies)
 - Hosting: Cloudflare Pages
 - Fonts: Google Fonts (Fraunces variable + IBM Plex family)

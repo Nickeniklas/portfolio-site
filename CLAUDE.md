@@ -15,6 +15,9 @@ index.html              landing page (all sections)
 style.css               all CSS — OKLCH design tokens, no Tailwind utilities
 writing/                one .html file per post
   └─ verktyget-ror-sig-snabbare-an-jag.html
+img/                    project card screenshots (used by two-tier thumbnail system)
+  ├─ geofill-img.jpg
+  └─ gdp-data-pipeline-img.jpg
 favicon.svg
 robots.txt
 sitemap.xml             update <loc> entries when new pages are added
@@ -73,9 +76,26 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 
 Duplicate an `<a class="card">` block in the `.projects-grid` in `index.html`. Update `href`, `card-thumb-marker`, `card-thumb-label`, `card-meta`, `h3`, `card-blurb`.
 
+**Card thumbnails — two-tier system:**
+
+- **Default (stripes):** keep `<div class="card-thumb-stripes" aria-hidden="true"></div>` — used for repos with no strong visual output.
+- **Screenshot:** for projects with a chart, map, or UI worth showing, save a cropped image to `img/` and replace the stripes div with:
+  ```html
+  <img class="card-thumb-img" src="img/your-image.jpg" alt="">
+  <div class="card-thumb-scrim" aria-hidden="true"></div>
+  ```
+  The scrim (50% dark overlay) ensures the label and marker remain readable over any image background. Add `style="object-position:center top"` on the `<img>` if the subject is near the top of the image.
+
 ### Now strip
 
-Edit the `.now` section in `index.html` — "Building", "Reading", "Listening" values.
+The `.now` section in `index.html` has four cells:
+
+| Cell | Type | Notes |
+|---|---|---|
+| Helsinki | Live clock | Inline JS — don't touch |
+| Status | Static text | Edit the `.val` span directly |
+| Building | Static text | Edit the `.val` span directly |
+| Last push | Live — GitHub API | Fetches `https://api.github.com/users/Nickeniklas/events/public` on page load, finds first `PushEvent`, displays `repo · Xd ago`. Error state shows a `github ↗` link. JS is in the inline `<script>` block at the bottom of `index.html`. |
 
 ---
 
@@ -91,7 +111,7 @@ Edit the `.now` section in `index.html` — "Building", "Reading", "Listening" v
 
 - **og:image** — no image tag exists yet. When ready: add `<meta property="og:image" content="https://portfolio-site-5bt.pages.dev/og.png">` to all pages. Image should be 1200×630px.
 - **Cloudflare Web Analytics** — enable in Cloudflare dashboard under the Pages project
-- **2 sample writing rows** — `index.html` lines ~191-200 still have `href="#"` placeholder entries
+- **2 sample writing rows** — `index.html` writing section still has two `href="#"` placeholder entries (2026·03 and 2026·02). Replace with real posts or remove.
 - **Custom domain** — Phase 5 in PLAN.md, optional
 
 ---
