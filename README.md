@@ -25,9 +25,10 @@ writing/                writing post pages — one HTML file per post
 img/                    project card screenshots (two-tier thumbnail system)
   ├─ geofill-img.jpg
   └─ gdp-data-pipeline-img.jpg
+og.png                  1200×630px Open Graph / Twitter card image
 favicon.svg             logo mark
 robots.txt              allow all crawlers; points to real sitemap URL
-sitemap.xml             live URL: portfolio-site-5bt.pages.dev
+sitemap.xml             covers homepage + all writing posts
 src/input.css           legacy Tailwind source (unused by current design)
 build.sh                legacy CSS rebuild command (unused by current design)
 portfolio-site-designV1.zip  design export reference (keep for reference)
@@ -64,9 +65,7 @@ Content is inline in `index.html` — one edit per item to add a project, writin
 
 ## Outstanding items
 
-- **og:image** — absent from all pages; needs a 1200×630px image for social link previews
 - **Cloudflare Web Analytics** — enable in Cloudflare dashboard (Pages → project → Web Analytics)
-- **Writing posts** — 2 sample placeholder entries remain in index.html (`href="#"`)
 - **Language switch (FI/EN)** — on the backlog, noted in PLAN.md
 
 ## Stack

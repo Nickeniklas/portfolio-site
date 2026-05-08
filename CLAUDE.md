@@ -18,6 +18,7 @@ writing/                one .html file per post
 img/                    project card screenshots (used by two-tier thumbnail system)
   ├─ geofill-img.jpg
   └─ gdp-data-pipeline-img.jpg
+og.png                  1200×630px Open Graph / Twitter card image (root, same level as favicon)
 favicon.svg
 robots.txt
 sitemap.xml             update <loc> entries when new pages are added
@@ -109,9 +110,7 @@ The `.now` section in `index.html` has four cells:
 
 ## Outstanding items
 
-- **og:image** — no image tag exists yet. When ready: add `<meta property="og:image" content="https://portfolio-site-5bt.pages.dev/og.png">` to all pages. Image should be 1200×630px.
 - **Cloudflare Web Analytics** — enable in Cloudflare dashboard under the Pages project
-- **2 sample writing rows** — `index.html` writing section still has two `href="#"` placeholder entries (2026·03 and 2026·02). Replace with real posts or remove.
 - **Custom domain** — Phase 5 in PLAN.md, optional
 
 ---
