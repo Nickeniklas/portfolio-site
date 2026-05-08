@@ -78,7 +78,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 0 20px;
+  padding: 22px var(--pad-x) 20px;
 }
 @media (min-width: 760px) {
   .nav {
@@ -87,8 +87,7 @@ a { color: inherit; text-decoration: none; }
     background: oklch(18% 0.014 60 / 0.92);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    margin: 0 calc(-1 * var(--pad-x));
-    padding: 16px var(--pad-x);
+    padding: 16px max(var(--pad-x), calc(50% - var(--col) / 2 + var(--pad-x)));
   }
 }
 .nav-id {
