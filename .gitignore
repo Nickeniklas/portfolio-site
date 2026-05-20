@@ -16,11 +16,3 @@ npm-debug.log*
 # Build output (if applicable)
 dist/
 build/
-
-# tailwind CLI binaries (platform-specific, not committed)
-tailwindcss
-tailwindcss.exe
-tailwindcss-windows-x64.exe
-tailwindcss-macos-x64
-tailwindcss-macos-arm64
-tailwindcss-linux-x64

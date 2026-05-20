@@ -22,7 +22,7 @@ A single landing page that grows over time. Loose coupling: the landing page lin
 
 - **HTML + custom CSS** (plain, no framework)
 - **Hosting:** Cloudflare Pages
-- **Repo:** GitHub (private or public, decide later)
+- **Repo:** GitHub (public — `github.com/Nickeniklas/portfolio-site`)
 - **Domain:** none yet — start with the free `.pages.dev` subdomain. Add a custom domain later.
 - **Analytics:** Cloudflare Web Analytics (free, built-in, toggle on after deploy)
 
@@ -37,7 +37,7 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
   - [x] Short intro / hero section
   - [x] Navigation header (links/icons for project sections — Blog, Games, Contact)
   - [x] Project cards linking out to Tech Digest and Geofill
-  - [x] Footer with GitHub, email, LinkedIn (LinkedIn URL still placeholder)
+  - [x] Footer with GitHub, email, LinkedIn
 - [x] SEO basics from day one:
   - [x] `<title>` and `<meta name="description">`
   - [x] Open Graph tags (`og:title`, `og:description`, `og:image`, `og:url`)

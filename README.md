@@ -2,8 +2,6 @@
 
 Static portfolio landing page. Links out to separate projects. Hosted on Cloudflare Pages at `https://portfolio-site-5bt.pages.dev/`.
 
-
-
 ## Local development
 
 **No build step required.** Open `index.html` directly in a browser (`file://`). Fonts load from Google Fonts.
