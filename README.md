@@ -13,7 +13,7 @@ Static portfolio landing page. Links out to separate projects. Hosted on Cloudfl
 
 **No build step required.** Open `index.html` directly in a browser (`file://`). Fonts load from Google Fonts.
 
-`style.css` is pure hand-authored custom CSS — no Tailwind utilities. The `src/input.css` and `build.sh` files remain in the repo for potential future use but are not part of the current build.
+`style.css` is pure hand-authored custom CSS — no Tailwind utilities.
 
 ## File structure
 
@@ -29,8 +29,6 @@ og.png                  1200×630px Open Graph / Twitter card image
 favicon.svg             logo mark
 robots.txt              allow all crawlers; points to real sitemap URL
 sitemap.xml             covers homepage + all writing posts
-src/input.css           legacy Tailwind source (unused by current design)
-build.sh                legacy CSS rebuild command (unused by current design)
 portfolio-site-designV1.zip  design export reference (keep for reference)
 ```
 
