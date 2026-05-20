@@ -20,7 +20,7 @@ A single landing page that grows over time. Loose coupling: the landing page lin
 
 ## Stack
 
-- **HTML + Tailwind CSS** (plain, no framework yet)
+- **HTML + custom CSS** (plain, no framework)
 - **Hosting:** Cloudflare Pages
 - **Repo:** GitHub (private or public, decide later)
 - **Domain:** none yet — start with the free `.pages.dev` subdomain. Add a custom domain later.
@@ -32,7 +32,7 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 
 ### Phase 1 — Build landing page locally
 
-- [x] Set up project folder with `index.html`, Tailwind CLI v4 standalone binary
+- [x] Set up project folder with `index.html`
 - [x] Single landing page with:
   - [x] Short intro / hero section
   - [x] Navigation header (links/icons for project sections — Blog, Games, Contact)

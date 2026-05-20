@@ -24,8 +24,6 @@ robots.txt
 sitemap.xml             update <loc> entries when new pages are added
 ```
 
-The `src/input.css`, `build.sh`, and Tailwind binary are legacy — unused, leave them alone.
-
 ---
 
 ## Design system
@@ -120,5 +118,5 @@ The `.now` section in `index.html` has four cells:
 - Don't add a build step or bundler
 - Don't add a CMS
 - Don't add JS dependencies
-- Don't use Tailwind utilities in `style.css` (the CDN/binary is there but not wired up)
+- Don't use Tailwind utilities in `style.css`
 - Don't add comments explaining what the code does — only add one if the WHY is non-obvious

@@ -1,13 +1,8 @@
 # Niklas Savonheimo – Personal Site
 
-Static portfolio landing page. Links out to separate projects. Hosted on Cloudflare Pages.
+Static portfolio landing page. Links out to separate projects. Hosted on Cloudflare Pages at `https://portfolio-site-5bt.pages.dev/`.
 
-## Status
 
-- **Phase 1 — complete.** Landing page built and committed.
-- **Phase 2 — complete.** Pushed to GitHub with README.
-- **Design v0.1 — complete.** Full visual redesign implemented: warm coffee-dark aesthetic, Fraunces slab + IBM Plex type, OKLCH color tokens, live Helsinki clock, interactive easter egg.
-- **Phase 3 — complete.** Deployed to Cloudflare Pages at `https://portfolio-site-5bt.pages.dev/`. All placeholder URLs replaced. Writing post infrastructure in place.
 
 ## Local development
 
