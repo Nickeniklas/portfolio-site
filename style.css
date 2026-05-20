@@ -320,13 +320,13 @@ a { color: inherit; text-decoration: none; }
   left: 14px; bottom: 12px;
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: var(--ink-faint);
+  color: var(--ink);
   text-transform: uppercase;
 }
 .card-thumb-marker {
   position: absolute; top: 14px; right: 14px;
   font-family: var(--mono); font-size: 10px;
-  color: var(--ink-mute);
+  color: var(--ink);
   display: flex; align-items: center; gap: 6px;
 }
 .card-thumb-marker::before {
