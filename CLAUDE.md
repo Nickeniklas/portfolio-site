@@ -13,8 +13,9 @@ Static portfolio site for Niklas Savonheimo. No build step, no framework, no dep
 ```
 index.html              landing page (all sections)
 style.css               all CSS — OKLCH design tokens, no Tailwind utilities
-writing/                one .html file per post
-  └─ verktyget-ror-sig-snabbare-an-jag.html
+writing/                one .html file per post; bilingual posts are separate files cross-linked with hreflang
+  ├─ the-tool-moves-faster-than-i-do.html      English, April 2026
+  └─ verktyget-ror-sig-snabbare-an-jag.html    Swedish, April 2026
 img/                    project card screenshots (used by two-tier thumbnail system)
   ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
@@ -52,7 +53,11 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.section` | Content section with standard padding |
 | `.sec-head` | Section header row (number + title + sub) |
 | `.card` | Project card (horizontal layout in `.projects-grid`) |
-| `.writing-row` | Single writing list entry (date · title · tag) |
+| `.sec-lede` | Section intro line below `.sec-head` (IBM Plex Sans, `--ink-mute`, ~15px) |
+| `.writing-row` | Single writing list entry — 3-col grid: date · title · `.row-tags` |
+| `.row-tags` | Flex container for tag badges inside `.writing-row` |
+| `.tag` | Topic tag pill (faint border, mono) |
+| `.lang` | Language badge pill (green accent, mono) — `EN`, `SV`, etc. |
 | `.prose` | Long-form serif text (18px Fraunces, text-indent on `p + p`) |
 | `.post-head` | Writing post page header (eyebrow + h1) |
 | `.post-title` | Writing post h1 (56px Fraunces, `max-width: 22ch`) |
@@ -69,8 +74,19 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 3. Update in `<head>`: `<title>`, `description`, `og:url`, `og:title`, `og:description`, `lang`
 4. Update `post-eyebrow` (date + tag pill) and `post-title`
 5. Replace paragraphs in `.post-body.prose` — first word of first `<p>` gets `<span class="first">word</span>`
-6. In `index.html`, add an `<a class="writing-row">` in the `.writing-list` with the matching `href`
+6. In `index.html`, add an `<a class="writing-row">` in the `.writing-list` using `.row-tags` with both a `.tag` (topic) and a `.lang` (language) badge:
+   ```html
+   <a class="writing-row" href="writing/my-post-title.html">
+     <span class="date">2026 · 05</span>
+     <span class="ttl">Post title here</span>
+     <span class="row-tags">
+       <span class="tag">AI</span>
+       <span class="lang">EN</span>
+     </span>
+   </a>
+   ```
 7. Update `sitemap.xml` with the new URL
+8. **If the post is a translation of an existing post:** add `hreflang` `<link>` tags in `<head>` of both files pointing at each other
 
 ### New project card
 

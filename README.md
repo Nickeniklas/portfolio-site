@@ -13,8 +13,9 @@ Static portfolio landing page. Links out to separate projects. Hosted on Cloudfl
 ```
 index.html              main page (all sections: hero, work, writing, shelf, about, footer)
 style.css               custom CSS with OKLCH design tokens (committed directly, no build)
-writing/                writing post pages — one HTML file per post
-  └─ verktyget-ror-sig-snabbare-an-jag.html  first post (Swedish, April 2026)
+writing/                writing post pages — one HTML file per post (bilingual = separate files + hreflang)
+  ├─ the-tool-moves-faster-than-i-do.html    English, April 2026
+  └─ verktyget-ror-sig-snabbare-an-jag.html  Swedish, April 2026
 img/                    project card screenshots (two-tier thumbnail system)
   ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
@@ -53,12 +54,13 @@ Content is inline in `index.html` — one edit per item to add a project, writin
 3. Update `lang` attribute if the post language differs
 4. Update the `post-eyebrow` date and tag, and `post-title`
 5. Replace the body paragraphs in `.post-body.prose`
-6. Add a matching `<a class="writing-row">` in `index.html`
+6. Add a matching `<a class="writing-row">` in `index.html` using `.row-tags` with a `.tag` (topic) and `.lang` (language) badge
+7. Add the URL to `sitemap.xml`
+8. If the post is a translation of an existing post, add `hreflang` `<link>` tags in `<head>` of both files
 
 ## Outstanding items
 
 - **Cloudflare Web Analytics** — enable in Cloudflare dashboard (Pages → project → Web Analytics)
-- **Language switch (FI/EN)** — on the backlog, noted in PLAN.md
 
 ## Stack
 
