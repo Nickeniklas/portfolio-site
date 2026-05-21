@@ -16,6 +16,7 @@ style.css               custom CSS with OKLCH design tokens (committed directly,
 writing/                writing post pages — one HTML file per post
   └─ verktyget-ror-sig-snabbare-an-jag.html  first post (Swedish, April 2026)
 img/                    project card screenshots (two-tier thumbnail system)
+  ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
   └─ gdp-data-pipeline-img.jpg
 og.png                  1200×630px Open Graph / Twitter card image

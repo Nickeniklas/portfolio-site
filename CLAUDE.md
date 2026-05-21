@@ -16,6 +16,7 @@ style.css               all CSS — OKLCH design tokens, no Tailwind utilities
 writing/                one .html file per post
   └─ verktyget-ror-sig-snabbare-an-jag.html
 img/                    project card screenshots (used by two-tier thumbnail system)
+  ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
   └─ gdp-data-pipeline-img.jpg
 og.png                  1200×630px Open Graph / Twitter card image (root, same level as favicon)
@@ -83,7 +84,7 @@ Duplicate an `<a class="card">` block in the `.projects-grid` in `index.html`. U
   <img class="card-thumb-img" src="img/your-image.jpg" alt="">
   <div class="card-thumb-scrim" aria-hidden="true"></div>
   ```
-  The scrim (50% dark overlay) ensures the label and marker remain readable over any image background. Add `style="object-position:center top"` on the `<img>` if the subject is near the top of the image.
+  The scrim (50% dark overlay) + `var(--ink)` text color on `.card-thumb-label` and `.card-thumb-marker` ensures legibility over any image. Add `style="object-position:center top"` on the `<img>` if the subject is near the top of the image.
 
 ### Now strip
 
