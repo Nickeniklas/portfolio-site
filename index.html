@@ -101,10 +101,27 @@
           <span class="sec-num">§ 01</span>
           <h2 class="sec-title">Selected work</h2>
         </div>
-        <span class="sec-sub">4 projects</span>
+        <span class="sec-sub">5 projects</span>
       </div>
 
       <div class="projects-grid">
+
+        <!-- Anti-AI AI Club -->
+        <a class="card" href="https://github.com/Nickeniklas/Anti-AI-AI-Club" target="_blank" rel="noopener noreferrer">
+          <div class="card-thumb">
+            <img class="card-thumb-img" src="img/AntiAI-AIClub-form.png" alt="">
+            <div class="card-thumb-scrim" aria-hidden="true"></div>
+            <div class="card-thumb-marker">site</div>
+            <div class="card-thumb-label">ANTIAI-CLUB.HTML</div>
+          </div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2026</span><span class="sep">·</span><span>static / html</span>
+            </div>
+            <h3>Anti-AI AI Club<span class="arrow" aria-hidden="true">↗</span></h3>
+            <p class="card-blurb">Multipage static site for Anti-AI, AI Club. Visitors pick which AI topics they care about — that's the core signal for what to cover. A curated feed of articles worth reading, and more.</p>
+          </div>
+        </a>
 
         <!-- Tech Digest -->
         <a class="card" href="https://nickeniklas.github.io/tech-digest/" target="_blank" rel="noopener noreferrer">
@@ -183,11 +200,16 @@
           <span class="sec-num">§ 02</span>
           <h2 class="sec-title">Writing</h2>
         </div>
-        <span class="sec-sub">Monthly · Swe/Eng</span>
+        <div class="writing-lang-wrap">
+          <div class="lang-toggle" id="lang-toggle" role="group" aria-label="Filter by language">
+            <button class="lang-btn" data-toggle="EN" aria-pressed="false">EN</button>
+            <button class="lang-btn" data-toggle="SV" aria-pressed="false">SV</button>
+          </div>
+        </div>
       </div>
       <p class="sec-lede">Things on my mind, written out.</p>
       <div class="writing-list">
-        <a class="writing-row" href="writing/the-tool-moves-faster-than-i-do.html">
+        <a class="writing-row" data-lang="EN" href="writing/the-tool-moves-faster-than-i-do.html">
           <span class="date">2026 · 04</span>
           <span class="ttl">The tool moves faster than I do</span>
           <span class="row-tags">
@@ -195,7 +217,7 @@
             <span class="lang">EN</span>
           </span>
         </a>
-        <a class="writing-row" href="writing/verktyget-ror-sig-snabbare-an-jag.html">
+        <a class="writing-row" data-lang="SV" href="writing/verktyget-ror-sig-snabbare-an-jag.html">
           <span class="date">2026 · 04</span>
           <span class="ttl">Verktyget rör sig snabbare än jag</span>
           <span class="row-tags">
@@ -360,6 +382,35 @@
       });
       egg.addEventListener('click', function () { egg.classList.remove('open'); });
       card.addEventListener('click', function (e) { e.stopPropagation(); });
+    })();
+
+    // Language toggle — writing section
+    (function () {
+      var STORAGE_KEY = 'writing-lang';
+      var toggle = document.getElementById('lang-toggle');
+      if (!toggle) return;
+      var rows = document.querySelectorAll('.writing-row[data-lang]');
+      var buttons = toggle.querySelectorAll('.lang-btn');
+      function detect() {
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'EN' || saved === 'SV') return saved;
+        return (navigator.language || '').toLowerCase().startsWith('sv') ? 'SV' : 'EN';
+      }
+      function apply(lang) {
+        rows.forEach(function (row) {
+          row.getAttribute('data-lang') === lang
+            ? row.removeAttribute('hidden')
+            : row.setAttribute('hidden', '');
+        });
+        buttons.forEach(function (btn) {
+          btn.setAttribute('aria-pressed', btn.getAttribute('data-toggle') === lang ? 'true' : 'false');
+        });
+        localStorage.setItem(STORAGE_KEY, lang);
+      }
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () { apply(btn.getAttribute('data-toggle')); });
+      });
+      apply(detect());
     })();
   </script>
 

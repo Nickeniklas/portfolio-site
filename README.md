@@ -17,6 +17,7 @@ writing/                writing post pages — one HTML file per post (bilingual
   ├─ the-tool-moves-faster-than-i-do.html    English, April 2026
   └─ verktyget-ror-sig-snabbare-an-jag.html  Swedish, April 2026
 img/                    project card screenshots (two-tier thumbnail system)
+  ├─ AntiAI-AIClub-form.png
   ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
   └─ gdp-data-pipeline-img.jpg
@@ -54,7 +55,7 @@ Content is inline in `index.html` — one edit per item to add a project, writin
 3. Update `lang` attribute if the post language differs
 4. Update the `post-eyebrow` date and tag, and `post-title`
 5. Replace the body paragraphs in `.post-body.prose`
-6. Add a matching `<a class="writing-row">` in `index.html` using `.row-tags` with a `.tag` (topic) and `.lang` (language) badge
+6. Add a matching `<a class="writing-row" data-lang="EN">` in `index.html` — `data-lang` (uppercase) is required for the EN/SV toggle to filter the row; include `.row-tags` with a `.tag` (topic) and `.lang` (language) badge
 7. Add the URL to `sitemap.xml`
 8. If the post is a translation of an existing post, add `hreflang` `<link>` tags in `<head>` of both files
 

@@ -17,6 +17,7 @@ writing/                one .html file per post; bilingual posts are separate fi
   ├─ the-tool-moves-faster-than-i-do.html      English, April 2026
   └─ verktyget-ror-sig-snabbare-an-jag.html    Swedish, April 2026
 img/                    project card screenshots (used by two-tier thumbnail system)
+  ├─ AntiAI-AIClub-form.png
   ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
   └─ gdp-data-pipeline-img.jpg
@@ -58,6 +59,9 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.row-tags` | Flex container for tag badges inside `.writing-row` |
 | `.tag` | Topic tag pill (faint border, mono) |
 | `.lang` | Language badge pill (green accent, mono) — `EN`, `SV`, etc. |
+| `.writing-lang-wrap` | Flex wrapper in writing `.sec-head` that holds the EN/SV toggle |
+| `.lang-toggle` | Segmented EN \| SV button group — filters writing list by `data-lang` attribute |
+| `.lang-btn` | Individual button inside `.lang-toggle`; `aria-pressed="true"` = active (filled green) |
 | `.prose` | Long-form serif text (18px Fraunces, text-indent on `p + p`) |
 | `.post-head` | Writing post page header (eyebrow + h1) |
 | `.post-title` | Writing post h1 (56px Fraunces, `max-width: 22ch`) |
@@ -74,9 +78,9 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 3. Update in `<head>`: `<title>`, `description`, `og:url`, `og:title`, `og:description`, `lang`
 4. Update `post-eyebrow` (date + tag pill) and `post-title`
 5. Replace paragraphs in `.post-body.prose` — first word of first `<p>` gets `<span class="first">word</span>`
-6. In `index.html`, add an `<a class="writing-row">` in the `.writing-list` using `.row-tags` with both a `.tag` (topic) and a `.lang` (language) badge:
+6. In `index.html`, add an `<a class="writing-row">` in the `.writing-list`. Include `data-lang` (uppercase: `EN`, `SV`, etc.) so the language toggle filters it correctly:
    ```html
-   <a class="writing-row" href="writing/my-post-title.html">
+   <a class="writing-row" data-lang="EN" href="writing/my-post-title.html">
      <span class="date">2026 · 05</span>
      <span class="ttl">Post title here</span>
      <span class="row-tags">
