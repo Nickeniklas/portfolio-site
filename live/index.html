@@ -30,23 +30,22 @@
 </head>
 <body>
 
-  <div class="shell">
+  <nav class="nav" aria-label="Primary">
+    <a class="nav-id" href="../">
+      <span class="dot" aria-hidden="true"></span>
+      <span><b>Niklas Savonheimo</b></span>
+    </a>
+    <div class="nav-links">
+      <a href="../#work">work</a>
+      <a href="../#writing">writing</a>
+      <a href="./">live</a>
+      <a href="../#stack">stack</a>
+      <a href="../#about">about</a>
+      <a href="../#contact">contact</a>
+    </div>
+  </nav>
 
-    <!-- Nav -->
-    <nav class="nav" aria-label="Primary">
-      <a class="nav-id" href="../">
-        <span class="dot" aria-hidden="true"></span>
-        <span><b>Niklas Savonheimo</b></span>
-      </a>
-      <div class="nav-links">
-        <a href="../#work">work</a>
-        <a href="../#writing">writing</a>
-        <a href="./">live</a>
-        <a href="../#stack">stack</a>
-        <a href="../#about">about</a>
-        <a href="../#contact">contact</a>
-      </div>
-    </nav>
+  <div class="shell">
 
     <!-- Hero -->
     <header class="hero">
@@ -64,7 +63,7 @@
           <span class="sec-num">§</span>
           <h2 class="sec-title">Running now</h2>
         </div>
-        <span class="sec-sub">1 live</span>
+        <span class="sec-sub">3 live</span>
       </div>
 
       <div class="live-grid">
@@ -72,8 +71,7 @@
         <!-- Geofill -->
         <a class="live-card" href="https://nickeniklas.github.io/geofill/" target="_blank" rel="noopener noreferrer">
           <div class="live-thumb">
-            <div class="live-thumb-stripes" aria-hidden="true"></div>
-            <!-- swap the stripes div above for: <img src="../live/geofill.png" alt="Geofill screenshot"> -->
+            <img src="../img/geofill-img.jpg" alt="" style="object-position:center top">
             <span class="live-thumb-marker">live</span>
           </div>
           <div class="live-body">
@@ -89,7 +87,43 @@
           </div>
         </a>
 
-        <!-- Template for the next one — duplicate the block above, update href/marker/meta/h3/blurb/tags -->
+        <!-- Anti-AI AI Club -->
+        <a class="live-card" href="https://github.com/Nickeniklas/Anti-AI-AI-Club" target="_blank" rel="noopener noreferrer">
+          <div class="live-thumb">
+            <img src="../img/AntiAI-AIClub-form.png" alt="">
+            <span class="live-thumb-marker">site</span>
+          </div>
+          <div class="live-body">
+            <div class="live-meta">
+              <span>2026</span><span class="sep">·</span><span>site</span><span class="sep">·</span><span>html</span>
+            </div>
+            <h3>Anti-AI AI Club<span class="arrow" aria-hidden="true">↗</span></h3>
+            <p class="live-blurb">Multipage static site for Anti-AI, AI Club. Visitors pick which AI topics they care about — that's the signal for what to cover. A curated feed of articles worth reading.</p>
+            <div class="live-tags">
+              <span class="tag">no install</span>
+              <span class="tag">runs in browser</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Tech Digest -->
+        <a class="live-card" href="https://nickeniklas.github.io/tech-digest/" target="_blank" rel="noopener noreferrer">
+          <div class="live-thumb">
+            <img src="../img/tech-digest-cover.png" alt="">
+            <span class="live-thumb-marker">news</span>
+          </div>
+          <div class="live-body">
+            <div class="live-meta">
+              <span>2026</span><span class="sep">·</span><span>news</span><span class="sep">·</span><span>claude</span>
+            </div>
+            <h3>Tech Digest<span class="arrow" aria-hidden="true">↗</span></h3>
+            <p class="live-blurb">Daily tech digest. Fetches AI and dev tools news from high-signal sources and summarizes with Claude. Updated every day.</p>
+            <div class="live-tags">
+              <span class="tag">no install</span>
+              <span class="tag">runs in browser</span>
+            </div>
+          </div>
+        </a>
 
       </div>
     </section>

@@ -76,6 +76,7 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 - [x] Verify everything works on the live URL
 - [x] Replace `placeholder.pages.dev` in `sitemap.xml`, `robots.txt`, and `og:url` in `index.html`
 - [x] Writing post infrastructure: `writing/` directory, first post published
+- [x] `live/` sub-page added — separate page for web apps/sites you can open and try; linked from nav and from a footnote below `#work`; 3 cards (Geofill, Anti-AI AI Club, Tech Digest); `sitemap.xml` updated
 
 ### Phase 4 — Analytics
 

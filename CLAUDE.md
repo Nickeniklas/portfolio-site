@@ -13,10 +13,12 @@ Static portfolio site for Niklas Savonheimo. No build step, no framework, no dep
 ```
 index.html              landing page (all sections)
 style.css               all CSS — OKLCH design tokens, no Tailwind utilities
+live/
+  └─ index.html         live apps/sites page — projects you can open and use right now
 writing/                one .html file per post; bilingual posts are separate files cross-linked with hreflang
   ├─ the-tool-moves-faster-than-i-do.html      English, April 2026
   └─ verktyget-ror-sig-snabbare-an-jag.html    Swedish, April 2026
-img/                    project card screenshots (used by two-tier thumbnail system)
+img/                    thumbnails shared by project cards and live cards
   ├─ AntiAI-AIClub-form.png
   ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
@@ -66,6 +68,16 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.post-head` | Writing post page header (eyebrow + h1) |
 | `.post-title` | Writing post h1 (56px Fraunces, `max-width: 22ch`) |
 | `.post-body` | Writing post body wrapper (use with `.prose`) |
+| `.live-grid` | Flex column container for live cards in `live/index.html` |
+| `.live-card` | Live site card — full-width, thumbnail on top, body below |
+| `.live-thumb` | Wide thumbnail region (16/7 aspect); holds stripes or `<img>` + `.live-thumb-marker` |
+| `.live-thumb-stripes` | Diagonal stripe placeholder (no image available) |
+| `.live-thumb-marker` | "live" badge pill in top-right of thumbnail; has own dark backdrop |
+| `.live-body` | Text body below the thumbnail in a `.live-card` |
+| `.live-meta` | Mono meta line (year · category · tech) inside `.live-body` |
+| `.live-blurb` | Description paragraph inside `.live-body` |
+| `.live-tags` | Flex row of `.tag` pills at the bottom of `.live-body` |
+| `.work-footnote` | Mono footnote below `.projects-grid` pointing readers to `live/` |
 
 ---
 
@@ -91,6 +103,17 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
    ```
 7. Update `sitemap.xml` with the new URL
 8. **If the post is a translation of an existing post:** add `hreflang` `<link>` tags in `<head>` of both files pointing at each other
+
+### New live card
+
+Duplicate an `<a class="live-card">` block in `live/index.html`. Update `href`, `live-meta`, `h3`, `live-blurb`, `live-tags`.
+
+**Live card thumbnails — same two-tier system as project cards:**
+
+- **Default (stripes):** `<div class="live-thumb-stripes" aria-hidden="true"></div>` inside `.live-thumb`
+- **Screenshot:** replace the stripes div with `<img src="../img/your-image.jpg" alt="">` — the `.live-thumb img` CSS handles positioning. Add `style="object-position:center top"` if needed.
+
+Update the `sec-sub` count ("1 live", "2 live", etc.) and add a `<url>` entry to `sitemap.xml` if the live app has its own page (usually not needed — the card links externally).
 
 ### New project card
 
