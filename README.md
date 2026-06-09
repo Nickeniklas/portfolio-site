@@ -22,7 +22,9 @@ img/                    thumbnails shared by project cards and live cards
   ├─ AntiAI-AIClub-form.png
   ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
-  └─ gdp-data-pipeline-img.jpg
+  ├─ gdp-data-pipeline-img.jpg
+  ├─ smartcharge-output.png
+  └─ finance_fun_request_lifecycle.svg
 og.png                  1200×630px Open Graph / Twitter card image
 favicon.svg             logo mark
 robots.txt              allow all crawlers; points to real sitemap URL
@@ -51,9 +53,14 @@ portfolio-site-designV1.zip  design export reference (keep for reference)
 
 ## Adding content
 
+### Link convention
+
+- **Front page project cards** → GitHub repo URLs
+- **Live page cards** → deployed/live URLs (GitHub Pages, Render, etc.)
+
 ### New project card (`index.html` → `#work`)
 
-Duplicate an `<a class="card">` block in `.projects-grid`. Update `href`, `card-thumb-marker`, `card-thumb-label`, `card-meta`, `h3`, `card-blurb`. For a screenshot thumbnail replace the stripes div with `<img class="card-thumb-img">` + `<div class="card-thumb-scrim">`.
+Duplicate an `<a class="card">` block in `.projects-grid`. Update `href`, `card-thumb-marker`, `card-thumb-label`, `card-meta`, `h3`, `card-blurb`. For a screenshot thumbnail replace the stripes div with `<img class="card-thumb-img">` + `<div class="card-thumb-scrim">`. Update the `sec-sub` count and the `sec-lede` if needed.
 
 ### New live card (`live/index.html`)
 

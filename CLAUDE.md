@@ -22,7 +22,9 @@ img/                    thumbnails shared by project cards and live cards
   ├─ AntiAI-AIClub-form.png
   ├─ tech-digest-cover.png
   ├─ geofill-img.jpg
-  └─ gdp-data-pipeline-img.jpg
+  ├─ gdp-data-pipeline-img.jpg
+  ├─ smartcharge-output.png
+  └─ finance_fun_request_lifecycle.svg
 og.png                  1200×630px Open Graph / Twitter card image (root, same level as favicon)
 favicon.svg
 robots.txt
@@ -77,7 +79,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.live-meta` | Mono meta line (year · category · tech) inside `.live-body` |
 | `.live-blurb` | Description paragraph inside `.live-body` |
 | `.live-tags` | Flex row of `.tag` pills at the bottom of `.live-body` |
-| `.work-footnote` | Mono footnote below `.projects-grid` pointing readers to `live/` |
+| `.work-footnote` | Mono footnote below `.projects-grid` — currently just holds "see live →" link |
 
 ---
 
@@ -139,6 +141,15 @@ The `.now` section in `index.html` has four cells:
 | Status | Static text | Edit the `.val` span directly |
 | Building | Static text | Edit the `.val` span directly |
 | Last push | Live — GitHub API | Fetches `https://api.github.com/users/Nickeniklas/events/public` on page load, finds first `PushEvent`, displays `repo · Xd ago`. Error state shows a `github ↗` link. JS is in the inline `<script>` block at the bottom of `index.html`. |
+
+### Link convention
+
+- **Front page project cards** → GitHub repo URLs (`github.com/Nickeniklas/…`)
+- **Live page cards** → deployed/live URLs (GitHub Pages, Render, etc.)
+
+### GitHub contribution calendar
+
+Sits in `§ 04 About`, below the `.about` grid, as a `.stack-cell` wrapper with `width: fit-content` so the cell hugs the image rather than stretching full-width. Image served from `https://ghchart.rshah.org/74c69d/Nickeniklas` (third-party service, color `74c69d` matches `--green`). Has `max-width: 100%; height: auto; display: block` on the `<img>`.
 
 ---
 
