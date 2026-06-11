@@ -11,10 +11,10 @@ Static portfolio site. Hosted on Cloudflare Pages at `https://portfolio-site-5bt
 ## File structure
 
 ```
-index.html              main page (all sections: hero, work, writing, shelf, about, footer)
+index.html              main page — hero → now strip → about → selected work → writing → shelf → footer
 style.css               custom CSS with OKLCH design tokens (committed directly, no build)
 live/
-  └─ index.html         live apps & sites — things you can open and try right now
+  └─ index.html         Projects page — live demos (§ 01) + the rest of the repos (§ 02)
 writing/                writing post pages — one HTML file per post (bilingual = separate files + hreflang)
   ├─ the-tool-moves-faster-than-i-do.html    English, April 2026
   └─ verktyget-ror-sig-snabbare-an-jag.html  Swedish, April 2026
@@ -26,18 +26,18 @@ img/                    thumbnails shared by project cards and live cards
   ├─ smartcharge-output.png
   └─ finance_fun_request_lifecycle.svg
 og.png                  1200×630px Open Graph / Twitter card image
+cv.docx                 downloadable CV (linked from nav, footer, about section; disallowed in robots.txt)
 favicon.svg             logo mark
 robots.txt              allow all crawlers; points to real sitemap URL
 sitemap.xml             covers homepage, live page, and all writing posts
-portfolio-site-designV1.zip  design export reference (keep for reference)
 ```
 
 ## Pages
 
 | URL | Description |
 |---|---|
-| `/` | Landing page — hero, work, writing, shelf, about, contact |
-| `/live/` | Live apps & sites — cards linking to running projects |
+| `/` | Landing page — hero, about, selected work, writing, shelf, contact |
+| `/live/` | Projects page — live demos plus the rest of the repos |
 | `/writing/*.html` | Individual writing posts |
 
 ### Landing page sections
@@ -45,26 +45,30 @@ portfolio-site-designV1.zip  design export reference (keep for reference)
 | Anchor | Section |
 |---|---|
 | `#top` | Hero — name, tagline |
-| `#work` | § 01 Selected work — project cards |
-| `#writing` | § 02 Writing — article list with EN/SV toggle |
-| `#stack` | § 03 The shelf — tools & stack |
-| `#about` | § 04 About — prose + meta |
-| `#contact` | Footer — CTA, email, socials |
+| `#about` | § 01 About — prose, meta, CV + links |
+| `#work` | § 02 Selected work — project cards |
+| `#writing` | § 03 Writing — article list with EN/SV toggle |
+| `#stack` | § 04 The shelf — tools & stack |
+| `#contact` | Footer — CTA, email, socials, CV |
 
 ## Adding content
 
 ### Link convention
 
-- **Front page project cards** → GitHub repo URLs
-- **Live page cards** → deployed/live URLs (GitHub Pages, Render, etc.)
+- **`#work` cards (front page)** → `.card-links` row with a GitHub repo link (`repo →`) and, where one exists, a live demo link (`live →`)
+- **`live/index.html` § 01 Running now** → whole `.live-card` links to the deployed/live URL (GitHub Pages, Render, etc.)
+- **`live/index.html` § 02 More projects** → whole `.card` links to the GitHub repo URL
 
-### New project card (`index.html` → `#work`)
+### New project card
 
-Duplicate an `<a class="card">` block in `.projects-grid`. Update `href`, `card-thumb-marker`, `card-thumb-label`, `card-meta`, `h3`, `card-blurb`. For a screenshot thumbnail replace the stripes div with `<img class="card-thumb-img">` + `<div class="card-thumb-scrim">`. Update the `sec-sub` count and the `sec-lede` if needed.
+- **`#work` (front page picks):** duplicate a `<div class="card">` block. No arrow span on `h3`. Body ends with a `.card-links` row (`repo →` and, optionally, `live →`).
+- **`live/index.html` § 02 More projects:** duplicate an `<a class="card" href="...github repo...">` block — single click-through, `h3` keeps its arrow span, no `.card-links`.
 
-### New live card (`live/index.html`)
+Both variants: update `card-thumb-marker`, `card-thumb-label`, `card-meta`, `h3`, `card-blurb`. For a screenshot thumbnail replace the stripes div with `<img class="card-thumb-img">` + `<div class="card-thumb-scrim">`. Update the `sec-sub` count and `sec-lede` if needed.
 
-Duplicate an `<a class="live-card">` block. Update `href`, `live-meta`, `h3`, `live-blurb`, `live-tags`. Update `sec-sub` count. For a screenshot thumbnail replace the stripes div with `<img src="../img/your-image.jpg" alt="">`.
+### New live demo card (`live/index.html` § 01 Running now)
+
+Duplicate an `<a class="live-card">` block. Update `href`, `live-meta`, `h3`, `live-blurb`, `live-tags`. Update `sec-sub` count. For a screenshot thumbnail replace the stripes div with `<img src="../img/your-image.jpg" alt="">`. If the project also has a repo, add a card for it in § 02 More projects too.
 
 ### New writing post
 

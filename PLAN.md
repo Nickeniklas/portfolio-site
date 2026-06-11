@@ -65,7 +65,6 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 - [x] Hidden keyboard easter egg
 - [x] Responsive (single breakpoint 760px)
 - [x] Reduced-motion support
-- Design reference archived as `portfolio-site-designV1.zip` in repo root
 
 ### Phase 3 — Deploy to Cloudflare Pages (complete)
 
@@ -76,7 +75,16 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 - [x] Verify everything works on the live URL
 - [x] Replace `placeholder.pages.dev` in `sitemap.xml`, `robots.txt`, and `og:url` in `index.html`
 - [x] Writing post infrastructure: `writing/` directory, first post published
-- [x] `live/` sub-page added — separate page for web apps/sites you can open and try; linked from nav and from a footnote below `#work`; 3 cards (Geofill, Anti-AI AI Club, Tech Digest); `sitemap.xml` updated
+- [x] `live/` sub-page added — separate page for web apps/sites you can open and try; linked from nav and from a footnote below `#work`; 3 cards (Geofill, Anti-AI AI Club, Tech Digest); `sitemap.xml` updated *(superseded — see "Site restructure" below: `live/` is now a "Projects" page with 4 live cards + 4 more-projects cards, and `#work` is trimmed to 2 picks)*
+
+### Site restructure — About-first layout, CV, Projects page (complete)
+
+- [x] Reordered landing page: About now leads (§ 01), followed by Selected work (§ 02), Writing (§ 03), The shelf (§ 04)
+- [x] Rewrote About prose (Professio praktik, broad degree, data focus); updated Status to "Open for work · September 2026"
+- [x] Added CV download (`cv.docx`) — button in `#about`, plus links in nav and footer; disallowed in `robots.txt`
+- [x] `#work` trimmed to two highlighted picks (Finance Fun, Smart Charge), each with explicit `repo →` / `live →` links via new `.card-links`
+- [x] `live/` expanded into a "Projects" page: § 01 Running now (live demos, unchanged) + § 02 More projects (the four cards moved off the front page — Anti-AI AI Club, Tech Digest, Geofill, GDP Data Pipeline)
+- [x] Nav updated across both pages: `about, work, writing, projects, stack, contact, cv`
 
 ### Phase 4 — Analytics
 

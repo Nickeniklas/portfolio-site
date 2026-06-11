@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /cv.docx
 
 Sitemap: https://portfolio-site-5bt.pages.dev/sitemap.xml

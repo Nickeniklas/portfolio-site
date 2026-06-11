@@ -53,12 +53,13 @@
       <span><b>Niklas Savonheimo</b></span>
     </a>
     <div class="nav-links">
+      <a href="#about">about</a>
       <a href="#work">work</a>
       <a href="#writing">writing</a>
-      <a href="live/">live</a>
+      <a href="live/">projects</a>
       <a href="#stack">stack</a>
-      <a href="#about">about</a>
       <a href="#contact">contact</a>
+      <a href="cv.docx" download>cv</a>
     </div>
   </nav>
 
@@ -95,21 +96,58 @@
       </div>
     </div>
 
-    <!-- § 01 Selected work -->
-    <section class="section" id="work">
+    <!-- § 01 About -->
+    <section class="section" id="about">
       <div class="sec-head">
         <div class="left">
           <span class="sec-num">§ 01</span>
+          <h2 class="sec-title">About</h2>
+        </div>
+      </div>
+
+      <div class="about">
+        <div class="prose">
+        <p><span class="first">Hello,</span> I'm Niklas. Final-year IT engineering student in Helsinki, four years into a degree that's been deliberately broad.</p>
+        <p>In 2026 I spent five months at Professio as part of my praktik, working with customer data in their CRM. I collected and cleaned contact profiles, built custom contact lists for other teams, and set up automations to make the data more useful.</p>
+        <p>The breadth is the point. The degree has taken me through everything from cybersecurity to machine learning to fullstack, so I'm not locked into one track. Right now I'm pointing it at data and backend work, but I pick things up fast and I'm not afraid of a domain I haven't seen yet.</p>
+        <p>I like data especially. There's something satisfying about getting a result out of it, even if it's just an optimization that saved half a cent.</p>
+      </div>
+        <dl class="about-meta">
+          <div><dt>Location</dt><dd>Helsinki, FI · UTC+2</dd></div>
+          <div><dt>Status</dt><dd>Open for work · September 2026</dd></div>
+          <div><dt>Languages</dt><dd>SV · EN · FI · DE (a little)</dd></div>
+        </dl>
+        <div class="cv-row">
+          <a class="cv-btn" href="cv.docx" download>Download CV</a>
+          <div class="cv-links">
+            <a href="https://github.com/Nickeniklas" target="_blank" rel="noopener noreferrer">github</a>
+            <a href="https://www.linkedin.com/in/niklassav/" target="_blank" rel="noopener noreferrer">linkedin</a>
+          </div>
+        </div>
+      </div>
+      <div class="stack-cell" style="margin-top: 24px; width: fit-content;">
+        <span class="lbl">GitHub contributions</span>
+        <a href="https://github.com/Nickeniklas" target="_blank" rel="noopener noreferrer" style="display: block; margin-top: 10px;">
+          <img src="https://ghchart.rshah.org/2D6A4F/Nickeniklas" alt="Niklas's GitHub contribution graph" loading="lazy" style="max-width: 100%; height: auto; display: block;">
+        </a>
+      </div>
+    </section>
+
+    <!-- § 02 Selected work -->
+    <section class="section" id="work">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">§ 02</span>
           <h2 class="sec-title">Selected work</h2>
         </div>
-        <span class="sec-sub">6 projects</span>
+        <span class="sec-sub">2 projects</span>
       </div>
-      <p class="sec-lede">All cards link out to repos and writeups.<br>For things you can open right now, see <a href="live/">live →</a></p>
+      <p class="sec-lede">Two recent picks — repo and live links below each.<br>For the rest, see <a href="live/">all projects →</a></p>
 
       <div class="projects-grid">
 
         <!-- Finance Fun -->
-        <a class="card" href="https://github.com/Nickeniklas/finance-fun" target="_blank" rel="noopener noreferrer">
+        <div class="card">
           <div class="card-thumb">
             <img class="card-thumb-img" src="img/finance_fun_request_lifecycle.svg" alt="">
             <div class="card-thumb-scrim" aria-hidden="true"></div>
@@ -120,64 +158,17 @@
             <div class="card-meta">
               <span>2026</span><span class="sep">·</span><span>fastapi / js</span>
             </div>
-            <h3>Finance Fun<span class="arrow" aria-hidden="true">↗</span></h3>
+            <h3>Finance Fun</h3>
             <p class="card-blurb">A no-login finance site for comparing stocks, reading news, tracking a watchlist with charts, and copying finance prompts. FastAPI + vanilla JS.</p>
-          </div>
-        </a>
-
-        <!-- Anti-AI AI Club -->
-        <a class="card" href="https://github.com/Nickeniklas/Anti-AI-AI-Club" target="_blank" rel="noopener noreferrer">
-          <div class="card-thumb">
-            <img class="card-thumb-img" src="img/AntiAI-AIClub-form.png" alt="">
-            <div class="card-thumb-scrim" aria-hidden="true"></div>
-            <div class="card-thumb-marker">site</div>
-            <div class="card-thumb-label">ANTIAI-CLUB.HTML</div>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span>2026</span><span class="sep">·</span><span>static / html</span>
+            <div class="card-links">
+              <a href="https://github.com/Nickeniklas/finance-fun" target="_blank" rel="noopener noreferrer">repo →</a>
+              <a href="https://finance-fun.onrender.com" target="_blank" rel="noopener noreferrer">live →</a>
             </div>
-            <h3>Anti-AI AI Club<span class="arrow" aria-hidden="true">↗</span></h3>
-            <p class="card-blurb">Multipage static site for Anti-AI, AI Club. Visitors pick which AI topics they care about — that's the core signal for what to cover. A curated feed of articles worth reading, and more.</p>
           </div>
-        </a>
-
-        <!-- Tech Digest -->
-        <a class="card" href="https://github.com/Nickeniklas/tech-digest" target="_blank" rel="noopener noreferrer">
-          <div class="card-thumb">
-            <img class="card-thumb-img" src="img/tech-digest-cover.png" alt="">
-            <div class="card-thumb-scrim" aria-hidden="true"></div>
-            <div class="card-thumb-marker">news</div>
-            <div class="card-thumb-label">TECH-DIGEST.LOG</div>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span>2026</span><span class="sep">·</span><span>daily / claude</span>
-            </div>
-            <h3>Tech Digest<span class="arrow" aria-hidden="true">↗</span></h3>
-            <p class="card-blurb">Daily tech digest generator, fetch AI and dev tools news from high-signal sources, summarize with Claude.</p>
-          </div>
-        </a>
-
-        <!-- Geofill -->
-        <a class="card" href="https://github.com/Nickeniklas/geofill" target="_blank" rel="noopener noreferrer">
-          <div class="card-thumb">
-            <img class="card-thumb-img" src="img/geofill-img.jpg" alt="" style="object-position:center top">
-            <div class="card-thumb-scrim" aria-hidden="true"></div>
-            <div class="card-thumb-marker">game</div>
-            <div class="card-thumb-label">GEOFILL.MAP</div>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span>2026</span><span class="sep">·</span><span>game / js</span>
-            </div>
-            <h3>Geofill<span class="arrow" aria-hidden="true">↗</span></h3>
-            <p class="card-blurb">Fill the map. beat the best time. Small simple game to learn countries, cities, lakes and more.</p>
-          </div>
-        </a>
+        </div>
 
         <!-- Smart Charge -->
-        <a class="card" href="https://github.com/Nickeniklas/smart-charge-ga" target="_blank" rel="noopener noreferrer">
+        <div class="card">
           <div class="card-thumb">
             <img class="card-thumb-img" src="img/smartcharge-output.png" alt="">
             <div class="card-thumb-scrim" aria-hidden="true"></div>
@@ -188,38 +179,24 @@
             <div class="card-meta">
               <span>2025</span><span class="sep">·</span><span>genetic algorithm / python</span>
             </div>
-            <h3>Smart Charge<span class="arrow" aria-hidden="true">↗</span></h3>
+            <h3>Smart Charge</h3>
             <p class="card-blurb">Schedules overnight EV charging to cut electricity costs — a genetic algorithm working against real hourly price data.</p>
-          </div>
-        </a>
-
-        <!-- GDP Data Pipeline -->
-        <a class="card" href="https://github.com/Nickeniklas/gdp-data-pipeline" target="_blank" rel="noopener noreferrer">
-          <div class="card-thumb">
-            <img class="card-thumb-img" src="img/gdp-data-pipeline-img.jpg" alt="">
-            <div class="card-thumb-scrim" aria-hidden="true"></div>
-            <div class="card-thumb-marker">data</div>
-            <div class="card-thumb-label">GDP-PIPELINE.CSV</div>
-          </div>
-          <div class="card-body">
-            <div class="card-meta">
-              <span>2025</span><span class="sep">·</span><span>data pipeline / python</span>
+            <div class="card-links">
+              <a href="https://github.com/Nickeniklas/smart-charge-ga" target="_blank" rel="noopener noreferrer">repo →</a>
             </div>
-            <h3>GDP Data Pipeline<span class="arrow" aria-hidden="true">↗</span></h3>
-            <p class="card-blurb">Merges two Kaggle datasets into a 66-year, 196-country time series to explore growth, inequality, and economic shocks.</p>
           </div>
-        </a>
+        </div>
 
       </div>
       <!-- live -->
-      <p class="work-footnote"><a href="live/">see live →</a></p>
+      <p class="work-footnote"><a href="live/">see all projects →</a></p>
     </section>
 
-    <!-- § 02 Writing -->
+    <!-- § 03 Writing -->
     <section class="section" id="writing">
       <div class="sec-head">
         <div class="left">
-          <span class="sec-num">§ 02</span>
+          <span class="sec-num">§ 03</span>
           <h2 class="sec-title">Writing</h2>
         </div>
         <div class="writing-lang-wrap">
@@ -250,11 +227,11 @@
       </div>
     </section>
 
-    <!-- § 03 The shelf -->
+    <!-- § 04 The shelf -->
     <section class="section" id="stack">
       <div class="sec-head">
         <div class="left">
-          <span class="sec-num">§ 03</span>
+          <span class="sec-num">§ 04</span>
           <h2 class="sec-title">The shelf</h2>
         </div>
         <span class="sec-sub">tools &amp; stack</span>
@@ -267,6 +244,7 @@
             <li>Python</li>
             <li>Git</li>
             <li>Claude Code</li>
+            <li>Excel</li>
           </ul>
         </div>
         <div class="stack-cell">
@@ -298,39 +276,6 @@
       </div>
     </section>
 
-    <!-- § 04 About -->
-    <section class="section" id="about">
-      <div class="sec-head">
-        <div class="left">
-          <span class="sec-num">§ 04</span>
-          <h2 class="sec-title">About</h2>
-        </div>
-      </div>
-
-      <div class="about">
-        <div class="prose">
-        <p><b>Data Engineer | Data Analyst | Fullstack Dev</b></p>
-        <br>
-        <p><span class="first">Hello,</span> I'm Niklas. IT student from Helsinki. Last year student with experience in a broad range of IT domains.</p>
-        <p>I like data. There's something satisfying about getting a result out of it, even if it's just an optimization that saved half a cent.</p>
-        <p>I'm constantly building new projects and exploring new technologies. See <a href="live/">live projects →</a></p>
-        <p>The learning never stops.</p>
-        <p>Open for work starting September 2026.</p>
-      </div>
-        <dl class="about-meta">
-          <div><dt>Location</dt><dd>Helsinki, FI · UTC+2</dd></div>
-          <div><dt>Status</dt><dd>Open for work september 2026</dd></div>
-          <div><dt>Languages</dt><dd>SV · EN · FI · DE (a little)</dd></div>
-        </dl>
-      </div>
-      <div class="stack-cell" style="margin-top: 24px; width: fit-content;">
-        <span class="lbl">GitHub contributions</span>
-        <a href="https://github.com/Nickeniklas" target="_blank" rel="noopener noreferrer" style="display: block; margin-top: 10px;">
-          <img src="https://ghchart.rshah.org/2D6A4F/Nickeniklas" alt="Niklas's GitHub contribution graph" loading="lazy" style="max-width: 100%; height: auto; display: block;">
-        </a>
-      </div>
-    </section>
-
   </div><!-- /shell -->
 
   <!-- Footer (full-width, has its own shell inside) -->
@@ -346,6 +291,7 @@
             <a href="https://github.com/Nickeniklas" target="_blank" rel="noopener noreferrer">github</a>
             <a href="https://www.linkedin.com/in/niklassav/" target="_blank" rel="noopener noreferrer">linkedin</a>
             <a href="mailto:savonheimoniklas@gmail.com">email</a>
+            <a href="cv.docx" download>cv</a>
           </div>
           <div class="meta">
             <span>Helsinki · 60.17°N 24.94°E</span>

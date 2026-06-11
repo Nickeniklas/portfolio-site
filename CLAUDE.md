@@ -11,10 +11,10 @@ Static portfolio site for Niklas Savonheimo. No build step, no framework, no dep
 ## File structure
 
 ```
-index.html              landing page (all sections)
+index.html              landing page — hero → now strip → about → selected work → writing → shelf → footer
 style.css               all CSS — OKLCH design tokens, no Tailwind utilities
 live/
-  └─ index.html         live apps/sites page — projects you can open and use right now
+  └─ index.html         Projects page — § 01 Running now (live demos), § 02 More projects (repo cards)
 writing/                one .html file per post; bilingual posts are separate files cross-linked with hreflang
   ├─ the-tool-moves-faster-than-i-do.html      English, April 2026
   └─ verktyget-ror-sig-snabbare-an-jag.html    Swedish, April 2026
@@ -26,6 +26,7 @@ img/                    thumbnails shared by project cards and live cards
   ├─ smartcharge-output.png
   └─ finance_fun_request_lifecycle.svg
 og.png                  1200×630px Open Graph / Twitter card image (root, same level as favicon)
+cv.docx                 downloadable CV — linked from nav, footer, and the About CV row; disallowed in robots.txt
 favicon.svg
 robots.txt
 sitemap.xml             update <loc> entries when new pages are added
@@ -57,7 +58,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.shell` | Max-width wrapper (1100px, centered) |
 | `.section` | Content section with standard padding |
 | `.sec-head` | Section header row (number + title + sub) |
-| `.card` | Project card (horizontal layout in `.projects-grid`) |
+| `.card` | Project card (horizontal layout in `.projects-grid`) — `<a class="card">` for a simple repo-link card, or `<div class="card">` with a `.card-links` row when it needs separate repo/live links |
 | `.sec-lede` | Section intro line below `.sec-head` (IBM Plex Sans, `--ink-mute`, ~15px) |
 | `.writing-row` | Single writing list entry — 3-col grid: date · title · `.row-tags` |
 | `.row-tags` | Flex container for tag badges inside `.writing-row` |
@@ -79,7 +80,11 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.live-meta` | Mono meta line (year · category · tech) inside `.live-body` |
 | `.live-blurb` | Description paragraph inside `.live-body` |
 | `.live-tags` | Flex row of `.tag` pills at the bottom of `.live-body` |
-| `.work-footnote` | Mono footnote below `.projects-grid` — currently just holds "see live →" link |
+| `.work-footnote` | Mono footnote below `.projects-grid` — currently holds "see all projects →" link to `live/` |
+| `.card-links` | Row of "repo →" / "live →" links inside `.card-body`, used when `.card` is a `<div>` rather than a single link |
+| `.cv-row` | Full-width row in `#about`, below the `.about` grid — holds `.cv-btn` + `.cv-links` |
+| `.cv-btn` | Primary CV download button (filled green pill, mono uppercase) — `<a href="cv.docx" download>` |
+| `.cv-links` | Secondary mono/uppercase link group beside `.cv-btn` (GitHub, LinkedIn) |
 
 ---
 
@@ -106,30 +111,42 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 7. Update `sitemap.xml` with the new URL
 8. **If the post is a translation of an existing post:** add `hreflang` `<link>` tags in `<head>` of both files pointing at each other
 
-### New live card
+### New live demo card (`live/index.html` § 01 Running now)
 
-Duplicate an `<a class="live-card">` block in `live/index.html`. Update `href`, `live-meta`, `h3`, `live-blurb`, `live-tags`.
+Duplicate an `<a class="live-card">` block. Update `href`, `live-meta`, `h3`, `live-blurb`, `live-tags`.
 
 **Live card thumbnails — same two-tier system as project cards:**
 
 - **Default (stripes):** `<div class="live-thumb-stripes" aria-hidden="true"></div>` inside `.live-thumb`
 - **Screenshot:** replace the stripes div with `<img src="../img/your-image.jpg" alt="">` — the `.live-thumb img` CSS handles positioning. Add `style="object-position:center top"` if needed.
 
-Update the `sec-sub` count ("1 live", "2 live", etc.) and add a `<url>` entry to `sitemap.xml` if the live app has its own page (usually not needed — the card links externally).
+Update the `sec-sub` count ("1 live", "2 live", etc.) and add a `<url>` entry to `sitemap.xml` if the live app has its own page (usually not needed — the card links externally). If the project also has a repo worth listing, add a card for it in § 02 More projects too — see below.
 
 ### New project card
 
-Duplicate an `<a class="card">` block in the `.projects-grid` in `index.html`. Update `href`, `card-thumb-marker`, `card-thumb-label`, `card-meta`, `h3`, `card-blurb`.
+Two variants of `.card` / `.projects-grid`, depending on where it lives:
 
-**Card thumbnails — two-tier system:**
+- **`#work` (front page, highlighted picks):** duplicate a `<div class="card">` block. `h3` has no arrow span. The body ends with a `.card-links` row:
+  ```html
+  <div class="card-links">
+    <a href="https://github.com/Nickeniklas/your-repo" target="_blank" rel="noopener noreferrer">repo →</a>
+    <a href="https://your-live-url" target="_blank" rel="noopener noreferrer">live →</a>
+  </div>
+  ```
+  Omit the `live →` link if there's no live demo.
+- **`live/index.html` § 02 More projects:** duplicate an `<a class="card" href="https://github.com/Nickeniklas/your-repo" target="_blank" rel="noopener noreferrer">` block instead — single click-through to the repo, `h3` keeps its `<span class="arrow" aria-hidden="true">↗</span>`, no `.card-links`.
+
+**Card thumbnails — two-tier system (both variants):**
 
 - **Default (stripes):** keep `<div class="card-thumb-stripes" aria-hidden="true"></div>` — used for repos with no strong visual output.
-- **Screenshot:** for projects with a chart, map, or UI worth showing, save a cropped image to `img/` and replace the stripes div with:
+- **Screenshot:** for projects with a chart, map, or UI worth showing, save a cropped image to `img/` (or `../img/` from `live/index.html`) and replace the stripes div with:
   ```html
   <img class="card-thumb-img" src="img/your-image.jpg" alt="">
   <div class="card-thumb-scrim" aria-hidden="true"></div>
   ```
   The scrim (50% dark overlay) + `var(--ink)` text color on `.card-thumb-label` and `.card-thumb-marker` ensures legibility over any image. Add `style="object-position:center top"` on the `<img>` if the subject is near the top of the image.
+
+Update the `sec-sub` count and `sec-lede` on whichever section changed.
 
 ### Now strip
 
@@ -144,12 +161,22 @@ The `.now` section in `index.html` has four cells:
 
 ### Link convention
 
-- **Front page project cards** → GitHub repo URLs (`github.com/Nickeniklas/…`)
-- **Live page cards** → deployed/live URLs (GitHub Pages, Render, etc.)
+- **`#work` cards (front page)** → `.card-links` row with a GitHub repo link (`repo →`) and, where one exists, a live demo link (`live →`)
+- **`live/index.html` § 01 Running now** → the whole `.live-card` links to the deployed/live URL (GitHub Pages, Render, etc.)
+- **`live/index.html` § 02 More projects** → the whole `.card` links to the GitHub repo URL
+
+### Nav & footer links
+
+Canonical nav order on both pages: `about, work, writing, projects, stack, contact, cv`.
+
+- `index.html`: `#about`, `#work`, `#writing`, `live/`, `#stack`, `#contact`, `cv.docx` (download)
+- `live/index.html`: `../#about`, `../#work`, `../#writing`, `./` (self, labeled "projects"), `../#stack`, `../#contact`, `../cv.docx` (download)
+
+The footer link row (github, linkedin, email, cv) only exists on `index.html`'s `#contact` footer — `live/index.html`'s footer is just "← home" + copyright.
 
 ### GitHub contribution calendar
 
-Sits in `§ 04 About`, below the `.about` grid, as a `.stack-cell` wrapper with `width: fit-content` so the cell hugs the image rather than stretching full-width. Image served from `https://ghchart.rshah.org/74c69d/Nickeniklas` (third-party service, color `74c69d` matches `--green`). Has `max-width: 100%; height: auto; display: block` on the `<img>`.
+Sits in `§ 01 About`, below the `.about` grid, as a `.stack-cell` wrapper with `width: fit-content` so the cell hugs the image rather than stretching full-width. Image served from `https://ghchart.rshah.org/2D6A4F/Nickeniklas` (third-party service, color `2D6A4F` close to `--green`). Has `max-width: 100%; height: auto; display: block` on the `<img>`.
 
 ---
 
@@ -165,6 +192,7 @@ Sits in `§ 04 About`, below the `.about` grid, as a `.stack-cell` wrapper with 
 
 - **Cloudflare Web Analytics** — enable in Cloudflare dashboard under the Pages project
 - **Custom domain** — Phase 5 in PLAN.md, optional
+- **Mobile nav overflow** — the 7-item nav (`about · work · writing · projects · stack · contact · cv`) overflows on narrow phones (~390px); consider wrapping, condensed labels, or a menu toggle
 
 ---
 
