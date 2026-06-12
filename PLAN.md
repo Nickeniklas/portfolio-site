@@ -79,12 +79,20 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 
 ### Site restructure — About-first layout, CV, Projects page (complete)
 
-- [x] Reordered landing page: About now leads (§ 01), followed by Selected work (§ 02), Writing (§ 03), The shelf (§ 04)
+- [x] Reordered landing page: About now leads (§ 01), followed by Selected work (§ 02), Writing (§ 03), The shelf (§ 04) *(superseded — see "Projects page reorg" below for the current order)*
 - [x] Rewrote About prose (Professio praktik, broad degree, data focus); updated Status to "Open for work · September 2026"
 - [x] Added CV download (`cv.docx`) — button in `#about`, plus links in nav and footer; disallowed in `robots.txt`
 - [x] `#work` trimmed to two highlighted picks (Finance Fun, Smart Charge), each with explicit `repo →` / `live →` links via new `.card-links`
-- [x] `live/` expanded into a "Projects" page: § 01 Running now (live demos, unchanged) + § 02 More projects (the four cards moved off the front page — Anti-AI AI Club, Tech Digest, Geofill, GDP Data Pipeline)
-- [x] Nav updated across both pages: `about, work, writing, projects, stack, contact, cv`
+- [x] `live/` expanded into a "Projects" page: § 01 Running now (live demos, unchanged) + § 02 More projects (the four cards moved off the front page — Anti-AI AI Club, Tech Digest, Geofill, GDP Data Pipeline) *(superseded — see "Projects page reorg" below)*
+- [x] Nav updated across both pages: `about, work, writing, projects, stack, contact, cv` *(superseded — see "Projects page reorg" below for the current nav order)*
+
+### Projects page reorg — link visibility, live-card grid, link consolidation (complete)
+
+- [x] Front-page section order changed to: About (§ 01) → The shelf (§ 02) → Selected work (§ 03) → Writing (§ 04); nav reordered to `about, stack, work, writing, projects, contact, cv` on both pages
+- [x] `.card-links` (`repo →` / `live →`) restyled as bordered pill chips that fill green on hover, used consistently across `#work`, `live/index.html` § 01, and § 02
+- [x] `live/index.html` § 02 More projects redesigned: compact 2-column grid (1 column ≤760px) of simplified cards, each with `.card-links`
+- [x] `live/index.html` § 01 Running now: converted from full-width stacked `.live-card`s to a 2-column grid (1 column ≤760px); each card now shows both `repo →` and `live →` via `.card-links` (dropped the old single-link-card pattern and the `.live-tags` "no install / runs in browser" badges)
+- [x] Removed duplication between sections: Anti-AI AI Club, Tech Digest, and Geofill (all have live demos) now live only in § 01; § 02 holds just GDP Data Pipeline (repo-only)
 
 ### Phase 4 — Analytics
 

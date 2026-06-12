@@ -395,19 +395,27 @@ a { color: inherit; text-decoration: none; }
   text-wrap: pretty;
 }
 .card-links {
-  margin-top: 12px;
+  margin-top: 16px;
   display: flex;
-  gap: 16px;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--ink-mute);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 .card-links a {
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 1px;
-  transition: color 0.15s, border-color 0.15s;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
-.card-links a:hover { color: var(--green-ink); border-color: var(--green-ink); }
+.card-links a:hover {
+  background: var(--green);
+  color: var(--bg);
+  border-color: var(--green);
+}
 
 @media (max-width: 760px) {
   .projects-grid .card { grid-template-columns: 1fr; }
@@ -415,6 +423,37 @@ a { color: inherit; text-decoration: none; }
     aspect-ratio: 16/9; min-height: 0;
     border-right: 0; border-bottom: 1px solid var(--line-soft);
   }
+}
+
+/* ── more-projects grid (live/index.html § 02) ───────────── */
+.more-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+.more-projects-grid .card {
+  display: flex;
+  flex-direction: column;
+}
+.more-projects-grid .card-thumb {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
+  border-bottom: 1px solid var(--line-soft);
+  border-right: 0;
+}
+.more-projects-grid .card-body {
+  padding: 18px 20px 20px;
+  display: block;
+}
+.more-projects-grid .card-thumb-marker {
+  background: oklch(18% 0.014 60 / 0.7);
+  padding: 5px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+@media (max-width: 760px) {
+  .more-projects-grid { grid-template-columns: 1fr; }
 }
 
 /* ── writing list ──────────────────────────────────────── */
@@ -787,8 +826,8 @@ a { color: inherit; text-decoration: none; }
 
 /* ── live sites ────────────────────────────────────────── */
 .live-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: clamp(20px, 3vw, 32px);
 }
 .live-card {
@@ -866,16 +905,6 @@ a { color: inherit; text-decoration: none; }
   font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 48;
   transition: color 0.2s;
 }
-.live-card h3 .arrow {
-  display: inline-block;
-  margin-left: 8px;
-  transition: transform 0.25s;
-  color: var(--ink-faint);
-}
-.live-card:hover h3 .arrow {
-  transform: translate(4px, -4px);
-  color: var(--green-ink);
-}
 .live-blurb {
   color: var(--ink-mute);
   font-size: 15px;
@@ -884,24 +913,13 @@ a { color: inherit; text-decoration: none; }
   max-width: 64ch;
   text-wrap: pretty;
 }
-.live-tags {
-  margin-top: 16px;
-  display: flex; gap: 8px; flex-wrap: wrap;
-}
-.live-tags .tag {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  color: var(--ink-faint);
-  border: 1px solid var(--line);
-  padding: 2px 9px;
-  border-radius: 999px;
-  letter-spacing: 0.05em;
+@media (max-width: 760px) {
+  .live-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .live-card { transition: border-color 0.2s; }
   .live-card:hover { transform: none; }
-  .live-card h3 .arrow { transition: none; }
 }
 
 /* ── work section footnote (pointer to /live/) ─────────── */
