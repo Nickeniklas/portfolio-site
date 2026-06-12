@@ -16,8 +16,10 @@ style.css               all CSS — OKLCH design tokens, no Tailwind utilities
 live/
   └─ index.html         Projects page — § 01 Running now (live demos), § 02 More projects (repo cards)
 writing/                one .html file per post; bilingual posts are separate files cross-linked with hreflang
-  ├─ the-tool-moves-faster-than-i-do.html      English, April 2026
-  └─ verktyget-ror-sig-snabbare-an-jag.html    Swedish, April 2026
+  ├─ maybe-this-was-the-most-open-era-of-ai.html       English, June 2026
+  ├─ kanske-var-det-har-den-oppnaste-tiden-for-ai.html Swedish, June 2026
+  ├─ the-tool-moves-faster-than-i-do.html              English, April 2026
+  └─ verktyget-ror-sig-snabbare-an-jag.html            Swedish, April 2026
 img/                    thumbnails shared by project cards and live cards
   ├─ AntiAI-AIClub-form.png
   ├─ tech-digest-cover.png
@@ -67,7 +69,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.writing-lang-wrap` | Flex wrapper in writing `.sec-head` that holds the EN/SV toggle |
 | `.lang-toggle` | Segmented EN \| SV button group — filters writing list by `data-lang` attribute |
 | `.lang-btn` | Individual button inside `.lang-toggle`; `aria-pressed="true"` = active (filled green) |
-| `.prose` | Long-form serif text (18px Fraunces, text-indent on `p + p`) |
+| `.prose` | Long-form serif text (18px Fraunces, text-indent on `p + p`); `h2` inside it gets a smaller serif section-heading style for posts with multiple sections |
 | `.post-head` | Writing post page header (eyebrow + h1) |
 | `.post-title` | Writing post h1 (56px Fraunces, `max-width: 22ch`) |
 | `.post-body` | Writing post body wrapper (use with `.prose`) |
@@ -96,7 +98,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 2. Rename: ASCII slug, e.g. `writing/my-post-title.html`
 3. Update in `<head>`: `<title>`, `description`, `og:url`, `og:title`, `og:description`, `lang`
 4. Update `post-eyebrow` (date + tag pill) and `post-title`
-5. Replace paragraphs in `.post-body.prose` — first word of first `<p>` gets `<span class="first">word</span>`
+5. Replace paragraphs in `.post-body.prose` — first word of first `<p>` gets `<span class="first">word</span>`. For longer posts, break it into sections with plain `<h2>Section title</h2>` between paragraphs — styled automatically via `.prose h2`
 6. In `index.html`, add an `<a class="writing-row">` in the `.writing-list`. Include `data-lang` (uppercase: `EN`, `SV`, etc.) so the language toggle filters it correctly:
    ```html
    <a class="writing-row" data-lang="EN" href="writing/my-post-title.html">

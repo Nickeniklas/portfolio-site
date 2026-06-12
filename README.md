@@ -16,8 +16,10 @@ style.css               custom CSS with OKLCH design tokens (committed directly,
 live/
   └─ index.html         Projects page — live demos (§ 01) + the rest of the repos (§ 02)
 writing/                writing post pages — one HTML file per post (bilingual = separate files + hreflang)
-  ├─ the-tool-moves-faster-than-i-do.html    English, April 2026
-  └─ verktyget-ror-sig-snabbare-an-jag.html  Swedish, April 2026
+  ├─ maybe-this-was-the-most-open-era-of-ai.html       English, June 2026
+  ├─ kanske-var-det-har-den-oppnaste-tiden-for-ai.html Swedish, June 2026
+  ├─ the-tool-moves-faster-than-i-do.html              English, April 2026
+  └─ verktyget-ror-sig-snabbare-an-jag.html            Swedish, April 2026
 img/                    thumbnails shared by project cards and live cards
   ├─ AntiAI-AIClub-form.png
   ├─ tech-digest-cover.png
@@ -75,7 +77,7 @@ Duplicate an `<a class="live-card">` block. Update `href`, `live-meta`, `h3`, `l
 1. Duplicate `writing/verktyget-ror-sig-snabbare-an-jag.html`, rename with a slug
 2. Update `<title>`, `<meta name="description">`, `og:url`, `og:title`, `og:description`, and `lang` in `<head>`
 3. Update the `post-eyebrow` date and tag, and `post-title`
-4. Replace body paragraphs in `.post-body.prose`
+4. Replace body paragraphs in `.post-body.prose`; for longer posts, split into sections with plain `<h2>` (styled via `.prose h2`)
 5. Add a matching `<a class="writing-row" data-lang="EN">` in `index.html` — `data-lang` (uppercase) drives the EN/SV toggle; include `.row-tags` with `.tag` (topic) and `.lang` (language) badges
 6. Add the URL to `sitemap.xml`
 7. If it's a translation of an existing post: add `hreflang` `<link>` tags in `<head>` of both files
