@@ -95,11 +95,10 @@ Duplicate a `<div class="live-card">` block inside `.live-grid` (2-column grid, 
 
 - **Cloudflare Web Analytics** — enable in Cloudflare dashboard (Pages → project → Web Analytics)
 - **Custom domain** — Phase 5 in `PLAN.md`, optional
-- **Mobile nav overflow** — the 7-item nav (`about · stack · work · writing · projects · contact · cv`) overflows on narrow phones (~390px); consider wrapping, condensed labels, or a menu toggle
 
 ## Stack
 
 - HTML + custom CSS (OKLCH, variable fonts: Fraunces, IBM Plex Sans/Mono)
-- Minimal inline JS (Helsinki clock, GitHub API last-push, Konami easter egg, EN/SV writing toggle — no dependencies)
+- Minimal inline JS (Helsinki clock, GitHub API last-push, Konami easter egg, EN/SV writing toggle, mobile nav hamburger toggle — no dependencies)
 - Hosting: Cloudflare Pages (auto-deploys on push to `main`)
 - Fonts: Google Fonts (Fraunces variable + IBM Plex family)

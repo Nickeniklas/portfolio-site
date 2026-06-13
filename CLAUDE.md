@@ -62,7 +62,9 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.sec-head` | Section header row (number + title + sub) |
 | `.card` | Project card — `<div class="card">` with a `.card-links` row (repo / live links) inside `.card-body`. Horizontal 280px-thumb layout in `.projects-grid` (index.html `#work`), or compact vertical layout in `.projects-grid.more-projects-grid` (live/index.html § 02) |
 | `.sec-lede` | Section intro line below `.sec-head` (IBM Plex Sans, `--ink-mute`, ~15px) |
-| `.writing-row` | Single writing list entry — 3-col grid: date · title · `.row-tags` |
+| `.nav-toggle` | Hamburger button — hidden ≥760px; shown ≤760px to open/close `.nav-links`. `id="nav-toggle"`, toggled via inline script on every page |
+| `.nav-toggle-icon` | Three-line icon inside `.nav-toggle`; animates to an × when `aria-expanded="true"` |
+| `.writing-row` | Single writing list entry — 3-col grid: date · title · `.row-tags`. ≤760px collapses to one column — date and `.row-tags` are hidden, title takes the full row |
 | `.row-tags` | Flex container for tag badges inside `.writing-row` |
 | `.tag` | Topic tag pill (faint border, mono) |
 | `.lang` | Language badge pill (green accent, mono) — `EN`, `SV`, etc. |
@@ -184,6 +186,52 @@ Canonical nav order on both pages: `about, stack, work, writing, projects, conta
 
 The footer link row (github, linkedin, email, cv) only exists on `index.html`'s `#contact` footer — `live/index.html`'s footer is just "← home" + copyright.
 
+### Mobile nav (hamburger)
+
+Every page's `<nav>` is sticky + blurred at all widths and includes a hamburger toggle, even pages with a single nav link (so that link stays reachable on mobile):
+
+```html
+<nav class="nav" aria-label="Primary">
+  <a class="nav-id" href="...">...</a>
+  <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Menu">
+    <span class="nav-toggle-icon" aria-hidden="true"></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    ...links...
+  </div>
+</nav>
+```
+
+≤760px, `.nav-links` becomes an opaque dropdown anchored below the nav (`var(--bg)`, no transparency — avoids text bleed-through from the hero). The toggle button is hidden ≥760px and the links render inline as before.
+
+Each page also needs the toggle script before `</body>` (in `index.html` it's folded into the existing `<script>` block as its own IIFE; other pages get a standalone `<script>` block):
+
+```html
+<script>
+  (function () {
+    var toggle = document.getElementById('nav-toggle');
+    var links = document.getElementById('nav-links');
+    if (!toggle || !links) return;
+    function close() {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+  })();
+</script>
+```
+
+When adding a new page with a `<nav>`, copy both the toggle button and this script.
+
 ### GitHub contribution calendar
 
 Sits in `§ 01 About`, below the `.about` grid, as a `.stack-cell` wrapper with `width: fit-content` so the cell hugs the image rather than stretching full-width. Image served from `https://ghchart.rshah.org/2D6A4F/Nickeniklas` (third-party service, color `2D6A4F` close to `--green`). Has `max-width: 100%; height: auto; display: block` on the `<img>`.
@@ -202,7 +250,6 @@ Sits in `§ 01 About`, below the `.about` grid, as a `.stack-cell` wrapper with 
 
 - **Cloudflare Web Analytics** — enable in Cloudflare dashboard under the Pages project
 - **Custom domain** — Phase 5 in PLAN.md, optional
-- **Mobile nav overflow** — the 7-item nav (`about · stack · work · writing · projects · contact · cv`) overflows on narrow phones (~390px); consider wrapping, condensed labels, or a menu toggle
 
 ---
 

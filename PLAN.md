@@ -94,6 +94,12 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 - [x] `live/index.html` § 01 Running now: converted from full-width stacked `.live-card`s to a 2-column grid (1 column ≤760px); each card now shows both `repo →` and `live →` via `.card-links` (dropped the old single-link-card pattern and the `.live-tags` "no install / runs in browser" badges)
 - [x] Removed duplication between sections: Anti-AI AI Club, Tech Digest, and Geofill (all have live demos) now live only in § 01; § 02 holds just GDP Data Pipeline (repo-only)
 
+### Mobile nav + writing list polish (complete)
+
+- [x] Hamburger menu replaces the overflowing 7-item nav on ≤760px — added `.nav-toggle` (animated hamburger → ×) and an opaque dropdown `.nav-links` panel anchored below the nav; `.nav` is now sticky + blurred at all widths (was desktop-only)
+- [x] Toggle button + small inline script (open/close, close on link click, close on Escape) added to every page with a `<nav>`: `index.html`, `live/index.html`, and all 4 writing posts
+- [x] `#writing` list (`.writing-row`) collapses to a single column ≤760px — date and tag/language badges are hidden so the title gets the full row width
+
 ### Phase 4 — Analytics
 
 - [ ] In Cloudflare dashboard, enable Web Analytics for the Pages project
