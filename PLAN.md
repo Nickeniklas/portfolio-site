@@ -90,7 +90,7 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 
 - [x] Front-page section order changed to: About (§ 01) → The shelf (§ 02) → Selected work (§ 03) → Writing (§ 04); nav reordered to `about, stack, work, writing, projects, contact, cv` on both pages
 - [x] `.card-links` (`repo →` / `live →`) restyled as bordered pill chips that fill green on hover, used consistently across `#work`, `projects/index.html` § 01, and § 02
-- [x] `projects/index.html` § 02 More projects redesigned: compact 2-column grid (1 column ≤760px) of simplified cards, each with `.card-links`
+- [x] `projects/index.html` § 02 More projects redesigned: compact 2-column grid (1 column ≤760px) of simplified cards, each with `.card-links` *(superseded — see "Projects page rename + expansion" below: now 3 columns)*
 - [x] `projects/index.html` § 01 Running now: converted from full-width stacked `.live-card`s to a 2-column grid (1 column ≤760px); each card now shows both `repo →` and `live →` via `.card-links` (dropped the old single-link-card pattern and the `.live-tags` "no install / runs in browser" badges)
 - [x] Removed duplication between sections: Anti-AI AI Club, Tech Digest, and Geofill (all have live demos) now live only in § 01; § 02 holds just GDP Data Pipeline (repo-only)
 
@@ -99,6 +99,15 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 - [x] Hamburger menu replaces the overflowing 7-item nav on ≤760px — added `.nav-toggle` (animated hamburger → ×) and an opaque dropdown `.nav-links` panel anchored below the nav; `.nav` is now sticky + blurred at all widths (was desktop-only)
 - [x] Toggle button + small inline script (open/close, close on link click, close on Escape) added to every page with a `<nav>`: `index.html`, `projects/index.html`, and all 4 writing posts
 - [x] `#writing` list (`.writing-row`) collapses to a single column ≤760px — date and tag/language badges are hidden so the title gets the full row width
+
+### Projects page rename + expansion (complete)
+
+- [x] `live/` directory renamed to `projects/` (`git mv`); updated nav/footer links, `og:url`, `sitemap.xml`, `style.css` comments, and all path references across `CLAUDE.md`, `README.md`, `PLAN.md`. `.live-*` CSS classes and "live →"/"Live URL"/"Live clock" wording left as-is — those describe the live-demo concept, not the folder.
+- [x] Geofill's `live-thumb-marker` changed from "live" to "game" (matches its `live-meta` category; all four § 01 cards are live, so "live" was redundant)
+- [x] `.more-projects-grid` (§ 02) expanded from 2 to 3 columns on desktop, with a new ≤980px breakpoint stepping down to 2 columns before the existing ≤760px single-column breakpoint
+- [x] § 02 grew from 1 card to 11: Smart Charge (also on front page `#work`), plus 9 new repos — Car Hybrid Recommender, Finnish Fuel Price EDA, Knapsack Algorithms Comparison, Stockdata Analytical System, Streamlit FinData Explorer, NHL Stats App, Tracklock Scraper, Atari Assault RL, Browser Startpage. NHL Stats App ordered ahead of Finnish Fuel Price EDA. `sec-sub` updated to "11 projects"
+- [x] Tracklock Scraper's thumbnail marker changed from "broken" to "scraper"; the blurb still notes it's currently broken
+- [x] All 11 § 02 cards now have real screenshot thumbnails in `img/` (named `<project>-thumbnail.{png,jpg}`) — `object-position:center top` used where the header/title sits at the top of a taller-than-16/9 image (Stockdata Analytical System, Streamlit FinData Explorer); `object-fit:contain` used for Atari Assault RL's single-line code screenshot (much wider/shorter than 16/9)
 
 ### Phase 4 — Analytics
 

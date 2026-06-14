@@ -493,7 +493,7 @@ a { color: inherit; text-decoration: none; }
 /* ── more-projects grid (projects/index.html § 02) ───────────── */
 .more-projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 .more-projects-grid .card {
@@ -516,6 +516,9 @@ a { color: inherit; text-decoration: none; }
   padding: 5px 10px;
   border-radius: 999px;
   backdrop-filter: blur(4px);
+}
+@media (max-width: 980px) {
+  .more-projects-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 760px) {
   .more-projects-grid { grid-template-columns: 1fr; }

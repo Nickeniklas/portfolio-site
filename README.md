@@ -20,13 +20,7 @@ writing/                writing post pages — one HTML file per post (bilingual
   ├─ kanske-var-det-har-den-oppnaste-tiden-for-ai.html Swedish, June 2026
   ├─ the-tool-moves-faster-than-i-do.html              English, April 2026
   └─ verktyget-ror-sig-snabbare-an-jag.html            Swedish, April 2026
-img/                    thumbnails shared by project cards and live cards
-  ├─ AntiAI-AIClub-form.png
-  ├─ tech-digest-cover.png
-  ├─ geofill-img.jpg
-  ├─ gdp-data-pipeline-img.jpg
-  ├─ smartcharge-output.png
-  └─ finance_fun_request_lifecycle.svg
+img/                    one thumbnail per project — used by live cards (§ 01), more-projects cards (§ 02), and #work cards. Named <project>-thumbnail.{png,jpg} (a few older files predate this convention)
 og.png                  1200×630px Open Graph / Twitter card image
 cv.docx                 downloadable CV (linked from nav, footer, about section; disallowed in robots.txt)
 favicon.svg             logo mark
@@ -64,7 +58,7 @@ sitemap.xml             covers homepage, projects page, and all writing posts
 ### New project card
 
 - **`#work` (front page picks):** duplicate a `<div class="card">` block inside `.projects-grid`. No arrow span on `h3`. Body ends with a `.card-links` row (`repo →` and, optionally, `live →`).
-- **`projects/index.html` § 02 More projects:** repo-only projects with no live demo — duplicate a `<div class="card">` block inside `.projects-grid.more-projects-grid` (2-column grid, 1 column ≤760px). No arrow span on `h3`. Body ends with a `.card-links` row containing just `repo →`. If the project later gets a live demo, move it to § 01 Running now instead and remove it from here.
+- **`projects/index.html` § 02 More projects:** repo-only projects with no live demo — duplicate a `<div class="card">` block inside `.projects-grid.more-projects-grid` (3-column grid, 2 columns ≤980px, 1 column ≤760px). No arrow span on `h3`. Body ends with a `.card-links` row containing just `repo →`. If the project later gets a live demo, move it to § 01 Running now instead and remove it from here.
 
 Both variants: update `card-meta`, `h3`, `card-blurb`, and the thumbnail marker. See `CLAUDE.md` for the full two-tier thumbnail system (`.projects-grid` uses scrim + label; `.more-projects-grid` uses a simplified marker-only thumb). Update the `sec-sub` count and `sec-lede` if needed.
 

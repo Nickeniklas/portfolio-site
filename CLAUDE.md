@@ -20,13 +20,7 @@ writing/                one .html file per post; bilingual posts are separate fi
   ├─ kanske-var-det-har-den-oppnaste-tiden-for-ai.html Swedish, June 2026
   ├─ the-tool-moves-faster-than-i-do.html              English, April 2026
   └─ verktyget-ror-sig-snabbare-an-jag.html            Swedish, April 2026
-img/                    thumbnails shared by project cards and live cards
-  ├─ AntiAI-AIClub-form.png
-  ├─ tech-digest-cover.png
-  ├─ geofill-img.jpg
-  ├─ gdp-data-pipeline-img.jpg
-  ├─ smartcharge-output.png
-  └─ finance_fun_request_lifecycle.svg
+img/                    one thumbnail per project — used by live cards (§ 01), more-projects cards (§ 02), and #work cards. Named <project>-thumbnail.{png,jpg} (a few older files predate this convention)
 og.png                  1200×630px Open Graph / Twitter card image (root, same level as favicon)
 cv.docx                 downloadable CV — linked from nav, footer, and the About CV row; disallowed in robots.txt
 favicon.svg
@@ -84,7 +78,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.live-meta` | Mono meta line (year · category · tech) inside `.live-body` |
 | `.live-blurb` | Description paragraph inside `.live-body` |
 | `.work-footnote` | Mono footnote below `.projects-grid` — currently holds "see all projects →" link to `projects/` |
-| `.more-projects-grid` | Modifier on `.projects-grid` for `projects/index.html` § 02 — 2-column grid (1 column ≤760px) of compact `.card`s for repo-only projects (`.card-links` shows just `repo →`) |
+| `.more-projects-grid` | Modifier on `.projects-grid` for `projects/index.html` § 02 — 3-column grid (2 columns ≤980px, 1 column ≤760px) of compact `.card`s for repo-only projects (`.card-links` shows just `repo →`) |
 | `.card-links` | Row of "repo →" / "live →" pill-style links inside `.card-body` — bordered chips that fill green on hover |
 | `.cv-row` | Full-width row in `#about`, below the `.about` grid — holds `.cv-btn` + `.cv-links` |
 | `.cv-btn` | Primary CV download button (filled green pill, mono uppercase) — `<a href="cv.docx" download>` |
@@ -128,7 +122,7 @@ Update the `sec-sub` count ("1 live", "2 live", etc.). Add a `<url>` entry to `s
 
 ### New project card
 
-Both variants of `.card` follow the same dual-link pattern now — they differ only in grid layout (`.projects-grid` 280px-thumb horizontal vs `.projects-grid.more-projects-grid` 2-col compact grid):
+Both variants of `.card` follow the same dual-link pattern now — they differ only in grid layout (`.projects-grid` 280px-thumb horizontal vs `.projects-grid.more-projects-grid` 3-col compact grid):
 
 - **`#work` (front page, highlighted picks):** duplicate a `<div class="card">` block inside `.projects-grid`. `h3` has no arrow span. The body ends with a `.card-links` row:
   ```html
@@ -138,7 +132,7 @@ Both variants of `.card` follow the same dual-link pattern now — they differ o
   </div>
   ```
   Omit the `live →` link if there's no live demo.
-- **`projects/index.html` § 02 More projects:** repo-only projects with no live demo — duplicate a `<div class="card">` block inside `.projects-grid.more-projects-grid` (2-column grid on desktop, 1 column ≤760px). `h3` has no arrow span, and the body ends with a `.card-links` row containing just `repo →`. If the project later gets a live demo, move it to § 01 Running now instead (with `repo →` and `live →`) and remove it from here.
+- **`projects/index.html` § 02 More projects:** repo-only projects with no live demo — duplicate a `<div class="card">` block inside `.projects-grid.more-projects-grid` (3-column grid on desktop, 2 columns ≤980px, 1 column ≤760px). `h3` has no arrow span, and the body ends with a `.card-links` row containing just `repo →`. If the project later gets a live demo, move it to § 01 Running now instead (with `repo →` and `live →`) and remove it from here.
 
 **Card thumbnails — two-tier system:**
 
@@ -157,6 +151,8 @@ Both variants of `.card` follow the same dual-link pattern now — they differ o
   <div class="card-thumb-marker">label</div>
   ```
   The marker gets its own dark backdrop pill (like `.live-thumb-marker`) via `.more-projects-grid .card-thumb-marker`, since there's no scrim for contrast.
+
+  All `.more-projects-grid` thumbnails are 16/9 with `object-fit: cover` by default. For a screenshot that's much taller than wide, add `style="object-position:center top"` to keep the title/header in frame. For one that's much wider/shorter than 16/9 (e.g. a single line of code), use `style="object-fit:contain"` instead so the whole image stays visible (letterboxed on `--bg-2`).
 
 Update the `sec-sub` count and `sec-lede` on whichever section changed.
 
