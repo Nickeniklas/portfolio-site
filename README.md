@@ -13,7 +13,7 @@ Static portfolio site. Hosted on Cloudflare Pages at `https://portfolio-site-5bt
 ```
 index.html              main page — hero → now strip → about → shelf → selected work → writing → footer
 style.css               custom CSS with OKLCH design tokens (committed directly, no build)
-live/
+projects/
   └─ index.html         Projects page — § 01 Running now (live demos, 2-col grid, repo+live links), § 02 More projects (repo-only cards)
 writing/                writing post pages — one HTML file per post (bilingual = separate files + hreflang)
   ├─ maybe-this-was-the-most-open-era-of-ai.html       English, June 2026
@@ -31,7 +31,7 @@ og.png                  1200×630px Open Graph / Twitter card image
 cv.docx                 downloadable CV (linked from nav, footer, about section; disallowed in robots.txt)
 favicon.svg             logo mark
 robots.txt              allow all crawlers; points to real sitemap URL
-sitemap.xml             covers homepage, live page, and all writing posts
+sitemap.xml             covers homepage, projects page, and all writing posts
 ```
 
 ## Pages
@@ -39,7 +39,7 @@ sitemap.xml             covers homepage, live page, and all writing posts
 | URL | Description |
 |---|---|
 | `/` | Landing page — hero, about, selected work, writing, shelf, contact |
-| `/live/` | Projects page — live demos plus the rest of the repos |
+| `/projects/` | Projects page — live demos plus the rest of the repos |
 | `/writing/*.html` | Individual writing posts |
 
 ### Landing page sections
@@ -58,17 +58,17 @@ sitemap.xml             covers homepage, live page, and all writing posts
 ### Link convention
 
 - **`#work` cards (front page)** → `.card-links` row with a GitHub repo link (`repo →`) and, where one exists, a live demo link (`live →`)
-- **`live/index.html` § 01 Running now** → `.card-links` row with `repo →` and `live →` (to the deployed URL, e.g. GitHub Pages, Render)
-- **`live/index.html` § 02 More projects** → repo-only projects (no live demo); `.card-links` row with just `repo →`
+- **`projects/index.html` § 01 Running now** → `.card-links` row with `repo →` and `live →` (to the deployed URL, e.g. GitHub Pages, Render)
+- **`projects/index.html` § 02 More projects** → repo-only projects (no live demo); `.card-links` row with just `repo →`
 
 ### New project card
 
 - **`#work` (front page picks):** duplicate a `<div class="card">` block inside `.projects-grid`. No arrow span on `h3`. Body ends with a `.card-links` row (`repo →` and, optionally, `live →`).
-- **`live/index.html` § 02 More projects:** repo-only projects with no live demo — duplicate a `<div class="card">` block inside `.projects-grid.more-projects-grid` (2-column grid, 1 column ≤760px). No arrow span on `h3`. Body ends with a `.card-links` row containing just `repo →`. If the project later gets a live demo, move it to § 01 Running now instead and remove it from here.
+- **`projects/index.html` § 02 More projects:** repo-only projects with no live demo — duplicate a `<div class="card">` block inside `.projects-grid.more-projects-grid` (2-column grid, 1 column ≤760px). No arrow span on `h3`. Body ends with a `.card-links` row containing just `repo →`. If the project later gets a live demo, move it to § 01 Running now instead and remove it from here.
 
 Both variants: update `card-meta`, `h3`, `card-blurb`, and the thumbnail marker. See `CLAUDE.md` for the full two-tier thumbnail system (`.projects-grid` uses scrim + label; `.more-projects-grid` uses a simplified marker-only thumb). Update the `sec-sub` count and `sec-lede` if needed.
 
-### New live demo card (`live/index.html` § 01 Running now)
+### New live demo card (`projects/index.html` § 01 Running now)
 
 Duplicate a `<div class="live-card">` block inside `.live-grid` (2-column grid, 1 column ≤760px). Update `live-thumb` image/marker, `live-meta`, `h3`, `live-blurb`, and the `.card-links` row (`repo →` always, `live →` to the deployed URL). Update `sec-sub` count. For a screenshot thumbnail replace the stripes div with `<img src="../img/your-image.jpg" alt="">`. A project with a live demo lives only in § 01 — don't also add it to § 02 More projects.
 

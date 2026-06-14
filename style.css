@@ -490,7 +490,7 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* ── more-projects grid (live/index.html § 02) ───────────── */
+/* ── more-projects grid (projects/index.html § 02) ───────────── */
 .more-projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -999,7 +999,7 @@ a { color: inherit; text-decoration: none; }
   .live-card:hover { transform: none; }
 }
 
-/* ── work section footnote (pointer to /live/) ─────────── */
+/* ── work section footnote (pointer to /projects/) ─────────── */
 .work-footnote {
   margin: 28px 0 0;
   font-family: var(--mono);

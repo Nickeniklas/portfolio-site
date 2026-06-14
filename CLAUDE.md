@@ -13,7 +13,7 @@ Static portfolio site for Niklas Savonheimo. No build step, no framework, no dep
 ```
 index.html              landing page — hero → now strip → about → shelf → selected work → writing → footer
 style.css               all CSS — OKLCH design tokens, no Tailwind utilities
-live/
+projects/
   └─ index.html         Projects page — § 01 Running now (live demos, 2-col grid, repo+live links), § 02 More projects (repo-only cards)
 writing/                one .html file per post; bilingual posts are separate files cross-linked with hreflang
   ├─ maybe-this-was-the-most-open-era-of-ai.html       English, June 2026
@@ -60,7 +60,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.shell` | Max-width wrapper (1100px, centered) |
 | `.section` | Content section with standard padding |
 | `.sec-head` | Section header row (number + title + sub) |
-| `.card` | Project card — `<div class="card">` with a `.card-links` row (repo / live links) inside `.card-body`. Horizontal 280px-thumb layout in `.projects-grid` (index.html `#work`), or compact vertical layout in `.projects-grid.more-projects-grid` (live/index.html § 02) |
+| `.card` | Project card — `<div class="card">` with a `.card-links` row (repo / live links) inside `.card-body`. Horizontal 280px-thumb layout in `.projects-grid` (index.html `#work`), or compact vertical layout in `.projects-grid.more-projects-grid` (projects/index.html § 02) |
 | `.sec-lede` | Section intro line below `.sec-head` (IBM Plex Sans, `--ink-mute`, ~15px) |
 | `.nav-toggle` | Hamburger button — hidden ≥760px; shown ≤760px to open/close `.nav-links`. `id="nav-toggle"`, toggled via inline script on every page |
 | `.nav-toggle-icon` | Three-line icon inside `.nav-toggle`; animates to an × when `aria-expanded="true"` |
@@ -75,7 +75,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.post-head` | Writing post page header (eyebrow + h1) |
 | `.post-title` | Writing post h1 (56px Fraunces, `max-width: 22ch`) |
 | `.post-body` | Writing post body wrapper (use with `.prose`) |
-| `.live-grid` | 2-column grid container for live cards in `live/index.html` (1 column ≤760px) |
+| `.live-grid` | 2-column grid container for live cards in `projects/index.html` (1 column ≤760px) |
 | `.live-card` | Live site card — thumbnail on top, body below, ends with a `.card-links` row (`repo →` / `live →`) |
 | `.live-thumb` | Wide thumbnail region (16/7 aspect); holds stripes or `<img>` + `.live-thumb-marker` |
 | `.live-thumb-stripes` | Diagonal stripe placeholder (no image available) |
@@ -83,8 +83,8 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.live-body` | Text body below the thumbnail in a `.live-card` |
 | `.live-meta` | Mono meta line (year · category · tech) inside `.live-body` |
 | `.live-blurb` | Description paragraph inside `.live-body` |
-| `.work-footnote` | Mono footnote below `.projects-grid` — currently holds "see all projects →" link to `live/` |
-| `.more-projects-grid` | Modifier on `.projects-grid` for `live/index.html` § 02 — 2-column grid (1 column ≤760px) of compact `.card`s for repo-only projects (`.card-links` shows just `repo →`) |
+| `.work-footnote` | Mono footnote below `.projects-grid` — currently holds "see all projects →" link to `projects/` |
+| `.more-projects-grid` | Modifier on `.projects-grid` for `projects/index.html` § 02 — 2-column grid (1 column ≤760px) of compact `.card`s for repo-only projects (`.card-links` shows just `repo →`) |
 | `.card-links` | Row of "repo →" / "live →" pill-style links inside `.card-body` — bordered chips that fill green on hover |
 | `.cv-row` | Full-width row in `#about`, below the `.about` grid — holds `.cv-btn` + `.cv-links` |
 | `.cv-btn` | Primary CV download button (filled green pill, mono uppercase) — `<a href="cv.docx" download>` |
@@ -115,7 +115,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 7. Update `sitemap.xml` with the new URL
 8. **If the post is a translation of an existing post:** add `hreflang` `<link>` tags in `<head>` of both files pointing at each other
 
-### New live demo card (`live/index.html` § 01 Running now)
+### New live demo card (`projects/index.html` § 01 Running now)
 
 Duplicate a `<div class="live-card">` block inside `.live-grid` (2-column grid, 1 column ≤760px). Update `live-thumb` image/marker, `live-meta`, `h3`, `live-blurb`, and the `.card-links` row: `repo →` (always) and `live →` (the deployed URL).
 
@@ -138,7 +138,7 @@ Both variants of `.card` follow the same dual-link pattern now — they differ o
   </div>
   ```
   Omit the `live →` link if there's no live demo.
-- **`live/index.html` § 02 More projects:** repo-only projects with no live demo — duplicate a `<div class="card">` block inside `.projects-grid.more-projects-grid` (2-column grid on desktop, 1 column ≤760px). `h3` has no arrow span, and the body ends with a `.card-links` row containing just `repo →`. If the project later gets a live demo, move it to § 01 Running now instead (with `repo →` and `live →`) and remove it from here.
+- **`projects/index.html` § 02 More projects:** repo-only projects with no live demo — duplicate a `<div class="card">` block inside `.projects-grid.more-projects-grid` (2-column grid on desktop, 1 column ≤760px). `h3` has no arrow span, and the body ends with a `.card-links` row containing just `repo →`. If the project later gets a live demo, move it to § 01 Running now instead (with `repo →` and `live →`) and remove it from here.
 
 **Card thumbnails — two-tier system:**
 
@@ -151,7 +151,7 @@ Both variants of `.card` follow the same dual-link pattern now — they differ o
   <div class="card-thumb-label">FILENAME.EXT</div>
   ```
   The scrim (50% dark overlay) + `var(--ink)` text color on `.card-thumb-label` and `.card-thumb-marker` ensures legibility over any image. Add `style="object-position:center top"` on the `<img>` if the subject is near the top of the image.
-- **Screenshot (`.more-projects-grid` / `live/index.html` § 02):** simplified thumb — `.card-thumb-img` + `.card-thumb-marker` only, no `.card-thumb-scrim` or `.card-thumb-label`:
+- **Screenshot (`.more-projects-grid` / `projects/index.html` § 02):** simplified thumb — `.card-thumb-img` + `.card-thumb-marker` only, no `.card-thumb-scrim` or `.card-thumb-label`:
   ```html
   <img class="card-thumb-img" src="../img/your-image.jpg" alt="">
   <div class="card-thumb-marker">label</div>
@@ -174,17 +174,17 @@ The `.now` section in `index.html` has four cells:
 ### Link convention
 
 - **`#work` cards (front page)** → `.card-links` row with a GitHub repo link (`repo →`) and, where one exists, a live demo link (`live →`)
-- **`live/index.html` § 01 Running now** → `.card-links` row with `repo →` and `live →` (to the deployed URL, e.g. GitHub Pages, Render)
-- **`live/index.html` § 02 More projects** → repo-only projects (no live demo); `.card-links` row with just `repo →`
+- **`projects/index.html` § 01 Running now** → `.card-links` row with `repo →` and `live →` (to the deployed URL, e.g. GitHub Pages, Render)
+- **`projects/index.html` § 02 More projects** → repo-only projects (no live demo); `.card-links` row with just `repo →`
 
 ### Nav & footer links
 
 Canonical nav order on both pages: `about, stack, work, writing, projects, contact, cv`.
 
-- `index.html`: `#about`, `#stack`, `#work`, `#writing`, `live/`, `#contact`, `cv.docx` (download)
-- `live/index.html`: `../#about`, `../#stack`, `../#work`, `../#writing`, `./` (self, labeled "projects"), `../#contact`, `../cv.docx` (download)
+- `index.html`: `#about`, `#stack`, `#work`, `#writing`, `projects/`, `#contact`, `cv.docx` (download)
+- `projects/index.html`: `../#about`, `../#stack`, `../#work`, `../#writing`, `./` (self, labeled "projects"), `../#contact`, `../cv.docx` (download)
 
-The footer link row (github, linkedin, email, cv) only exists on `index.html`'s `#contact` footer — `live/index.html`'s footer is just "← home" + copyright.
+The footer link row (github, linkedin, email, cv) only exists on `index.html`'s `#contact` footer — `projects/index.html`'s footer is just "← home" + copyright.
 
 ### Mobile nav (hamburger)
 
