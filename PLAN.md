@@ -109,6 +109,15 @@ If the site ever needs more than static HTML, migrate to Astro. Don't migrate pr
 - [x] Tracklock Scraper's thumbnail marker changed from "broken" to "scraper"; the blurb still notes it's currently broken
 - [x] All 11 § 02 cards now have real screenshot thumbnails in `img/` (named `<project>-thumbnail.{png,jpg}`) — `object-position:center top` used where the header/title sits at the top of a taller-than-16/9 image (Stockdata Analytical System, Streamlit FinData Explorer); `object-fit:contain` used for Atari Assault RL's single-line code screenshot (much wider/shorter than 16/9)
 
+### Projects page hero + about footnote (complete)
+
+- [x] Replaced `img/AntiAI-AIClub-form.png` with an updated screenshot (same filename, no markup changes needed — checked the new 1178×501 image against `.live-thumb`'s 16/6 box, crop is negligible)
+- [x] Added a `.work-footnote` link ("see what I've been building →" → `projects/`) at the end of the About prose in `index.html`, reusing the same class as the `#work` section's "see all projects →" footnote. Used a `<div>` instead of `<p>` to avoid `.prose p + p`'s text-indent/margin rules
+- [x] `projects/index.html` hero rewritten: h1 "Everything I've built" → "What I've been building"; the all-caps `.hero-lede` ("Live demos you can open and try right now, plus the rest of the code") removed entirely
+- [x] Added `.hero-compact` modifier (in `style.css`, applied only to `projects/index.html`'s `<header class="hero hero-compact">`) — shrinks h1 and hero padding so the first row of live cards is visible on a 1920×1080 screen without scrolling. Homepage hero (`index.html`) is unaffected
+- [x] `.live-thumb` aspect ratio reduced from 16/7 to 16/6 (slightly shorter live-card thumbnails, part of the same fit-on-screen pass)
+- [x] § 02 `sec-lede` shortened: "More repos — code only, no live demos yet." → "With links to the repos."
+
 ### Phase 4 — Analytics
 
 - [ ] In Cloudflare dashboard, enable Web Analytics for the Pages project

@@ -71,13 +71,14 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.post-body` | Writing post body wrapper (use with `.prose`) |
 | `.live-grid` | 2-column grid container for live cards in `projects/index.html` (1 column ≤760px) |
 | `.live-card` | Live site card — thumbnail on top, body below, ends with a `.card-links` row (`repo →` / `live →`) |
-| `.live-thumb` | Wide thumbnail region (16/7 aspect); holds stripes or `<img>` + `.live-thumb-marker` |
+| `.live-thumb` | Wide thumbnail region (16/6 aspect); holds stripes or `<img>` + `.live-thumb-marker` |
 | `.live-thumb-stripes` | Diagonal stripe placeholder (no image available) |
 | `.live-thumb-marker` | "live" badge pill in top-right of thumbnail; has own dark backdrop |
 | `.live-body` | Text body below the thumbnail in a `.live-card` |
 | `.live-meta` | Mono meta line (year · category · tech) inside `.live-body` |
 | `.live-blurb` | Description paragraph inside `.live-body` |
-| `.work-footnote` | Mono footnote below `.projects-grid` — currently holds "see all projects →" link to `projects/` |
+| `.work-footnote` | Mono footnote link to `projects/` — used below `.projects-grid` in `#work` ("see all projects →") and as a `<div>` at the end of the About prose ("see what I've been building →") |
+| `.hero-compact` | Modifier on `.hero` — used only on `projects/index.html`'s `<header>`. Shrinks the h1 and hero padding so the first project row fits on screen at 1920×1080 without scrolling. Homepage hero is unaffected |
 | `.more-projects-grid` | Modifier on `.projects-grid` for `projects/index.html` § 02 — 3-column grid (2 columns ≤980px, 1 column ≤760px) of compact `.card`s for repo-only projects (`.card-links` shows just `repo →`) |
 | `.card-links` | Row of "repo →" / "live →" pill-style links inside `.card-body` — bordered chips that fill green on hover |
 | `.cv-row` | Full-width row in `#about`, below the `.about` grid — holds `.cv-btn` + `.cv-links` |
