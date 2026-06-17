@@ -11,7 +11,7 @@ Static portfolio site for Niklas Savonheimo. No build step, no framework, no dep
 ## File structure
 
 ```
-index.html              landing page — hero → now strip → about → shelf → selected work → writing → footer
+index.html              landing page — hero → now strip → about → selected work → shelf → writing → footer
 style.css               all CSS — OKLCH design tokens, no Tailwind utilities
 projects/
   └─ index.html         Projects page — § 01 Running now (live demos, 2-col grid, repo+live links), § 02 More projects (repo-only cards)
@@ -69,6 +69,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 | `.post-head` | Writing post page header (eyebrow + h1) |
 | `.post-title` | Writing post h1 (56px Fraunces, `max-width: 22ch`) |
 | `.post-body` | Writing post body wrapper (use with `.prose`) |
+| `.post-sign` | Sign-off line at the end of `.post-body.prose` (`<p class="post-sign">— Niklas</p>`) — mono, muted, text-indent reset so it doesn't inherit the paragraph indent |
 | `.live-grid` | 2-column grid container for live cards in `projects/index.html` (1 column ≤760px) |
 | `.live-card` | Live site card — thumbnail on top, body below, ends with a `.card-links` row (`repo →` / `live →`) |
 | `.live-thumb` | Wide thumbnail region (16/6 aspect); holds stripes or `<img>` + `.live-thumb-marker` |
@@ -95,7 +96,7 @@ All type and spacing uses `clamp()` for fluid sizing. Breakpoint at 760px.
 2. Rename: ASCII slug, e.g. `writing/my-post-title.html`
 3. Update in `<head>`: `<title>`, `description`, `og:url`, `og:title`, `og:description`, `lang`
 4. Update `post-eyebrow` (date + tag pill) and `post-title`
-5. Replace paragraphs in `.post-body.prose` — first word of first `<p>` gets `<span class="first">word</span>`. For longer posts, break it into sections with plain `<h2>Section title</h2>` between paragraphs — styled automatically via `.prose h2`
+5. Replace paragraphs in `.post-body.prose` — first word of first `<p>` gets `<span class="first">word</span>`. For longer posts, break it into sections with plain `<h2>Section title</h2>` between paragraphs — styled automatically via `.prose h2`. End the body with the sign-off `<p class="post-sign">— Niklas</p>` as the last element inside `.post-body.prose`
 6. In `index.html`, add an `<a class="writing-row">` in the `.writing-list`. Include `data-lang` (uppercase: `EN`, `SV`, etc.) so the language toggle filters it correctly:
    ```html
    <a class="writing-row" data-lang="EN" href="writing/my-post-title.html">
@@ -176,10 +177,10 @@ The `.now` section in `index.html` has four cells:
 
 ### Nav & footer links
 
-Canonical nav order on both pages: `about, stack, work, writing, projects, contact, cv`.
+Canonical nav order on both pages: `about, work, stack, writing, projects, contact, cv` (mirrors the section order on the homepage — selected work before the shelf).
 
-- `index.html`: `#about`, `#stack`, `#work`, `#writing`, `projects/`, `#contact`, `cv.docx` (download)
-- `projects/index.html`: `../#about`, `../#stack`, `../#work`, `../#writing`, `./` (self, labeled "projects"), `../#contact`, `../cv.docx` (download)
+- `index.html`: `#about`, `#work`, `#stack`, `#writing`, `projects/`, `#contact`, `cv.docx` (download)
+- `projects/index.html`: `../#about`, `../#work`, `../#stack`, `../#writing`, `./` (self, labeled "projects"), `../#contact`, `../cv.docx` (download)
 
 The footer link row (github, linkedin, email, cv) only exists on `index.html`'s `#contact` footer — `projects/index.html`'s footer is just "← home" + copyright.
 
